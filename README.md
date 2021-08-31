@@ -1,6 +1,6 @@
 # FiCUS
 
-## Fitting the stellar Continuum of Uv Spectra
+## FItting the stellar Continuum of Uv Spectra
 
 
 #### ```ficus.py``` -> main script. 
