@@ -219,7 +219,7 @@ def ficus(path, spec_name, plot_mode, ssp_models, Zarray, att_law, att_igm, wave
         SEDparams[:,ns] = sed_params(wl_full,np.array(sed_fullmod)[-1,2],np.array(sed_fullmod)[-1,1],z_spec,norm_factor);
         
         
-    """ Obtaining the median and std. deviation of the output parameters:
+    """ Obtaining the median and standard deviation of the output parameters:
     """ 
     params_output = np.c_[params_array[:,0], np.nanstd(params_array, axis=1)];
     SEDparams_output = np.c_[SEDparams[:,0], np.nanstd(SEDparams, axis=1)];
@@ -256,7 +256,7 @@ def ficus(path, spec_name, plot_mode, ssp_models, Zarray, att_law, att_igm, wave
     #  Save data and results into (.txt) files:  #
     # ------------------------------------------ #
     
-    """ (1) Derived basic parameters from the fit (light-fractions and E(B-V)):
+    """ (1) Derived basic parameters from the fit (light-fractions and E_BV):
     """
     np.savetxt(path+'/outputs/%s_ficus_OutputFiles/%s_ficus_fit.txt' %(now.strftime('%Y%m%d'), spec_name), params_output, 
 fmt='  '.join(['%+12.5e'] + ['%+12.5e']),
@@ -402,7 +402,7 @@ comments= '### Alberto Saldana-Lopez (Obs. Geneva - UniGE)\n' + '# ' + '%s' %(no
 + '# \n');
     
     
-    """ (4) Full SED (dust-attenuated and dust-free):
+    """ (4) Full SED (dust-attenuated and dust-free), with errors:
     """ 
     np.savetxt(path+'/outputs/%s_ficus_OutputFiles/%s_ficus_SEDfull.txt' %(now.strftime('%Y%m%d'), spec_name), np.c_[wl_full, np.array(sed_fullmod)[0,2], np.nanstd(np.array(sed_fullmod)[:,2], axis=0), np.array(sed_fullmod)[0,1], np.nanstd(np.array(sed_fullmod)[:,1], axis=0)], 
 fmt='  '.join(['%+12.5e'] + ['%+12.5e'] + ['%+12.5e'] + ['%+12.5e'] + ['%+12.5e']),
