@@ -2,7 +2,7 @@
 ## FItting the stellar Continuum of Uv Spectra (FiCUS)
 
 
-#### "FiCUS.py" -> main script. 
+### "FiCUS.py" -> main script. 
  
  Fit the observed input spectra with the best combination of SSPs models, and return 
  the mean light-fractions (X_i) and attenuation parameter (E_BV, uniform screen of dust). 
@@ -27,13 +27,13 @@
 
 
 
-#### "ficus_functions.py" -> secondary script. 
+### "ficus_functions.py" -> secondary script. 
 
  After being called, all the analysis and plotting functions are imported into "ficus.py".
 
 
 
-#### "ficus.ini" -> configuration file. 
+### "ficus.ini" -> configuration file. 
 
  It contains all the input parameters that feed the "FiCUS.py" code.
  It is structured as in the "/examples/example.ini" default example:
