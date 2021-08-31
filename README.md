@@ -17,7 +17,7 @@
 
  To be run in console as:
  ```
- > python3.7 your-ficus-path/FiCUS.py
+ > python3.7 your-ficus-path/ficus.py
  ```
  
  To be run into a jupyter-notebook (.ipynb) as:
