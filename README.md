@@ -37,7 +37,7 @@
  It is structured as in the ```/examples/example.ini``` default example:
  
  ```> less /examples/example.ini
-  [ficus]
+   [ficus]
    spec_name = example
    plot_mode = yes
    ssp_models = sb99
