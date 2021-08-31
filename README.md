@@ -1,5 +1,5 @@
 # FiCUS
-FItting the stellar Continuum of Uv Spectra (FiCUS)
+## FItting the stellar Continuum of Uv Spectra (FiCUS)
 
 
 "FiCUS.py" -> main script. 
@@ -19,8 +19,8 @@ FItting the stellar Continuum of Uv Spectra (FiCUS)
  
  To be run into a jupyter-notebook (.ipynb) as:
  > import os
-   os.chdir(your-ficus-path);
-   %run -i your-ficus-path/ficus.py
+ > os.chdir(your-ficus-path);
+ > %run -i your-ficus-path/ficus.py
 
 
 "ficus_functions.py" -> secondary script. 
@@ -45,4 +45,4 @@ FItting the stellar Continuum of Uv Spectra (FiCUS)
     wave_norm = 1070.,1110.
     nsim = 100.
 
-# EOF
+### EOF
