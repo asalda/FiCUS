@@ -19,7 +19,9 @@
  
  To be run into a jupyter-notebook (.ipynb) as:
  > import os
+ > 
  > os.chdir(your-ficus-path);
+ > 
  > %run -i your-ficus-path/ficus.py
 
 
@@ -45,4 +47,4 @@
     wave_norm = 1070.,1110.
     nsim = 100.
 
-### EOF
+#### EOF
