@@ -35,16 +35,27 @@
  
  > less /examples/example.ini
    [ficus]
+   
     spec_name = example
+    
     plot_mode = yes
+    
     ssp_models = sb99
+    
     zarray = 001,004,008,02,04
+    
     att_law = reddy16
+    
     att_igm = no
+    
     wave_range = 945.,1275.
+    
     z_spec = 0.300355
+    
     wave_r = 1000.
+    
     wave_norm = 1070.,1110.
+    
     nsim = 100.
 
-#### EOF
+##### EOF
