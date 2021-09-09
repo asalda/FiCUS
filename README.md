@@ -44,11 +44,11 @@
    zarray = 001,004,008,02
    att_law = reddy16
    att_igm = no
-   wave_range = 945.,1275.
-   z_spec = 0.300355
+   wave_range = 925.,1375.
+   z_spec = 0.33314
    wave_r = 1000.
    wave_norm = 1070.,1110.
    nsim = 100.
-  
+   
    #EOF
  ```
