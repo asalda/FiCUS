@@ -1,9 +1,9 @@
  
- ######################################################################
+ ##############################################################
  
- ###   FiCUS: FItting the stellar Continuum of Uv Spectra (FiCUS)   ### 
+ ###   FiCUS: Fitting the stellar Continuum of Uv Spectra   ### 
  
- ######################################################################
+ ##############################################################
 
  
  ### ficus.py ###
@@ -443,11 +443,11 @@ comments= '### Alberto Saldana-Lopez (Obs. Geneva - UniGE)\n' + '# ' + '%s' %(no
 
 if __name__ == "__main__":
     print('   ')
-    print(' ###################################################################### ')
+    print(' ############################################################## ')
     print('   ')
-    print(' ###   FiCUS: FItting the stellar Continuum of Uv Spectra (FiCUS)   ### ')
+    print(' ###   FiCUS: Fitting the stellar Continuum of Uv Spectra   ### ')
     print('   ')
-    print(' ###################################################################### ')
+    print(' ############################################################## ')
     print('   ')
     print('   ')
     print(' ### Running FiCUS (ficus.py) for %s.fits ...' %(spec_name))
