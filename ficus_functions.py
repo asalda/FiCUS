@@ -205,9 +205,7 @@ def spec2R_conv(R_mod, R_obs, wave_R, z_obs, wl_obs, data_array, error_array, wl
     if vdisp_obs >= vdisp_mod:
         vdisp_add = np.sqrt(vdisp_obs**2 - vdisp_mod**2);
         
-        mod_pix = R2vdisp(specR(wl_obs, wave_R));
-        sig = (vdisp_add/mod_pix)/2.354820046;
-
+        sig = (vdisp_add/vdisp_mod);
         n = np.ceil(3.034854259*sig);
         xsize = int(2*n) + 1;
         
@@ -215,15 +213,13 @@ def spec2R_conv(R_mod, R_obs, wave_R, z_obs, wl_obs, data_array, error_array, wl
 
         custom_lib = np.zeros((len(models_array),len(wl_obs)));
         for i in np.arange(0,len(models_array),1):
-            model_interp = np.interp(wl_obs, wl_model, models_array[i,:]);
-            custom_lib[i,:] = spec_convolution(model_interp, sig, xsize);
+            model_conv = spec_convolution(models_array[i,:], sig, xsize);
+            custom_lib[i,:] = np.interp(wl_obs, wl_model, model_conv);
     
     else:
         vdisp_add = np.sqrt(vdisp_mod**2 - vdisp_obs**2);
         
-        mod_pix = R2vdisp(specR(wl_model, wave_R));
-        sig = (vdisp_add/mod_pix)/2.354820046;
-        
+        sig = (vdisp_add/vdisp_obs);
         n = np.ceil(3.034854259*sig);
         xsize = int(2*n) + 1;
         
@@ -414,33 +410,33 @@ def ficus_plot(pdf_file, spec_name, z_spec, wave, flux_norm, err_norm, normID, m
     
     for a in np.split(np.array(wave), np.nonzero(mask_array==1)[0]):
         if len(a) > 1:
-            ax1.fill_between([a[1], a[-1]], 0., np.max(flux_norm[normID])*2. ,alpha=0.25, color='gray');
+            ax1.fill_between([a[1], a[-1]], -0.2, np.max(flux_norm[normID])*2. ,alpha=0.25, color='gray');
     
-    select_lines = {'Names': ['OVI', 'CIII', 'NV'], 'WAVES': [1037., 1175., 1240.]};
+    select_lines = {'Names': ['OVI', 'CIII', 'NV', 'OV', 'SiIV', 'CIV', 'HeII'], 'WAVES': [1037., 1175., 1240., 1371., 1400., 1550., 1640.]};
     for nid, wlid in zip(select_lines['Names'],select_lines['WAVES']):
-        ax1.plot([wlid, wlid], [np.max(flux_norm[normID])*1.4, np.max(flux_norm[normID])*1.5], ls='-', color='indigo', lw=2.5);
-        ax1.text(x=wlid-3., y=np.max(flux_norm[normID])*1.3, s=r'$\mathrm{%s}$' %(nid), fontsize=14, color='indigo');
+        if wave[0] <= wlid < wave[-1]:
+            ax1.plot([wlid, wlid], [np.max(flux_norm[normID])*1.4, np.max(flux_norm[normID])*1.5], ls='-', color='indigo', lw=2.5);
+            ax1.text(x=wlid, y=np.max(flux_norm[normID])*1.275, s=r'$\mathrm{%s}$' %(nid), fontsize=14, color='indigo', ha='center', va='center');
     
-    select_lines = {'Names': ['Ly6', 'Ly5', 'Ly \delta', 'Ly \gamma', 'SiII', 'Ly {\\beta}', 'SiII', 'Ly {\\alpha}', 'SiII', 'OI', 'CII'], 'WAVES': [930., 938., 950., 973., 1020., 1026., 1191.5, 1216., 1260., 1302., 1334.]};
-    upf, u = [1., 1.2, 1.3], 1;
+    select_lines = {'Names': ['Ly6', 'Ly5', 'Ly \delta', 'Ly \gamma', 'SiII', 'Ly {\\beta}', 'SiII', 'Ly {\\alpha}', 'SiII', 'OI+SiII', 'CII', 'FeII', 'AlII'], 'WAVES': [930., 938., 950., 973., 1020., 1026., 1191.5, 1216., 1260., 1302., 1334., 1608., 1670.]};
     for nid, wlid in zip(select_lines['Names'],select_lines['WAVES']):
-        u = u*(-1);
-        ax1.plot([wlid, wlid], [np.max(flux_norm[normID])*1.4, np.max(flux_norm[normID])*1.5], ls='-', color='k', lw=2.);
-        ax1.text(x=wlid-4., y=np.max(flux_norm[normID])*upf[int(u)], s=r'$\mathrm{%s}$' %(nid), fontsize=14, color='k');
-    
-    ax1.plot([1216./(1+z_spec), 1216./(1+z_spec)], [0.075, 0.2], ls='-', color='k', lw=2.);
-    ax1.text(x=1216./(1+z_spec)-6., y=0.25, s=r'$\mathrm{geoLy\alpha}$', fontsize=14, color='k');
-    ax1.plot([1302./(1+z_spec), 1302./(1+z_spec)], [0.075, 0.2], ls='-', color='k', lw=2.);
-    ax1.text(x=1302./(1+z_spec)-6., y=0.25, s=r'$\mathrm{geoOI}$', fontsize=14, color='k');
+        if wave[0] <= wlid < wave[-1]:
+                ax1.plot([wlid, wlid], [np.max(flux_norm[normID])*1.4, np.max(flux_norm[normID])*1.5], ls='-', color='k', lw=2.);
+                ax1.text(x=wlid, y=np.max(flux_norm[normID])*1.175, s=r'$\mathrm{%s}$' %(nid), fontsize=12, color='k', ha='center', va='center');
+            
+    #ax1.plot([1216./(1+z_spec), 1216./(1+z_spec)], [0.075, 0.2], ls='-', color='k', lw=2.);
+    #ax1.text(x=1216./(1+z_spec)-6., y=0.25, s=r'$\mathrm{geoLy\alpha}$', fontsize=14, color='k');
+    #ax1.plot([1302./(1+z_spec), 1302./(1+z_spec)], [0.075, 0.2], ls='-', color='k', lw=2.);
+    #ax1.text(x=1302./(1+z_spec)-6., y=0.25, s=r'$\mathrm{geoOI}$', fontsize=14, color='k');
     
     ax1.set_xlim(wave[0], wave[-1]);
     ax1.set_ylim(0.,np.max(flux_norm[normID])*1.5);
 
-    ax1.set_xlabel(r'$\mathrm{Rest-frame~Wavelength~(\AA)}$', fontsize = 22, labelpad=12);
-    ax1.set_ylabel(r'$\mathrm{Normalized~Flux}$', fontsize = 22, labelpad=12);
+    ax1.set_xlabel(r'$\mathrm{Rest-frame~wavelength~(\AA)}$', fontsize = 22, labelpad=12);
+    ax1.set_ylabel(r'$\mathrm{Normalized~flux}$', fontsize = 22, labelpad=12);
     ax1.set_title(r'$\mathrm{%s~(z = %s) - stellar ~continuum}$' %(spec_name.replace('_', '~'), "{0:.5f}".format(z_spec)), fontsize = 22, pad=18);
     ax1.legend(loc='lower right', fontsize = 15, edgecolor = 'k', framealpha = 1., ncol=3);
-    ax1.xaxis.set_major_locator(ticker.MultipleLocator(50.));
+    ax1.xaxis.set_major_locator(ticker.MultipleLocator(100.));
     ax1.xaxis.set_minor_locator(ticker.MultipleLocator(25.));
     ax1.yaxis.set_major_locator(ticker.MultipleLocator(1.));
     ax1.yaxis.set_minor_locator(ticker.MultipleLocator(0.25));
