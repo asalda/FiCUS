@@ -4,7 +4,6 @@
 - [Input and Configuration files](https://github.com/asalda/FiCUS/README.md#the-input-and-configuration-files)
 - [Running FiCUS](https://github.com/asalda/FiCUS/README.md#running-ficus)
 - [Outputs and Plots](https://github.com/asalda/FiCUS/README.md#outputs0-and-plots)
-- [Tutorials](https://github.com/asalda/FiCUS/README.md#tutorials)
 
 
 ## Description
@@ -32,7 +31,7 @@ $$ --- $$
 
 
 ## Installation
-`FiCUS` is written in `Python` language. Before installing the code, the current working environment must be equipped with the following versions and basic packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
+`FiCUS` is written in `Python` language. Before installing the code, the current working environment must be equipped with the following basic packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
 ```
 > python 3.7.4 
 > matplotlib 3.1.1 
@@ -49,22 +48,51 @@ $$ --- $$
 ## Input and Configuration files
 - The INPUT `.fits` file must contain, at least, four columns in the first extension after an empty Primary() HDU, with the following names: 
   - 'WAVE'.......... observed-frame wavelength array, in \AA, 
-  - 'FLUX'........... spectral flux-density array, in $F_{\lambda}$ units (e.g., erg/s/cm2/AA), 
+  - 'FLUX'........... spectral flux-density, in $F_{\lambda}$ units (erg/s/cm2/AA), 
   - 'FLUX_ERR'... $1 \sigma$ error on the spectral flux-density, 
   - 'MASK'.......... mask array (0 = masked, 1 = un-masked).
   
-  This INPUT file can, for example, inherit the `NAME` of the spectrum to be fitted, and must always be placed into the [./inputs/](https://github.com/asalda/FiCUS/inputs/) folder. We note that 'WAVE', 'FLUX' and 'FLUX_ERR'. The binary-array 'MASK' match the length of the WAVE array, and 
+  The binary-array 'MASK' is . The INPUT file can, for example, inherit the `NAME` of the spectrum to be fitted, and must always be placed into the [./FiCUS/inputs/](https://github.com/asalda/FiCUS/inputs/) folder beforehand.
 
-- The CONFIGURATION file (It contains all the input parameters that feed the ```ficus.py``` code. It is structured as in the ```/examples/example.ini``` default example:)
+- The CONFIGURATION `.fits` file contains all the input parameters that feed the ```ficus.py``` code.
+  ```
+  ... ...
+         plot_mode  > activate or desactivate PLOTTING mode 
+                      [yes // no], 
+         
+         ssp_models > pick your preferred stellar LIBRARY 
+                      [sb99 (Starburst99, Leitherer et al. 2011; ApJS, 123, 1) //
+                       bpass (BPASSv2.2.1, Eldridge et al. 2017; PASA, 34, E058)], 
+         
+         zarray     > specify a set of METALLICITIES 
+                      [001,004,008,01,02 (standing for 1/20, 1/5, 2/5, 1 and/or 2 Z_\sun)], 
+                      
+         att_law    > choose the DUST attenuation law 
+                      [r16 (Reddy et al. 2016; ApJ, 828, 2) //
+                       smc (Prevot et al. 1994; A&A, 132, 389-392)], 
+         
+         wave_range > rest-frame WAVELENGTH range to be considered in the fit 
+                      [e.g., 1200.,1920. (\lambda_min, \lambda_max; in \AA)], 
+         
+         wave_norm  > rest-frame wavelength interval for NORMALIZATION of the spectrum
+                      [e.g., 1350.,1370. (in \AA)], 
+         
+         r_obs      > instrumental RESOLUTION of the input spectra 
+                      [as R = (\Delta \lambda) / \lambda], 
+         
+         nsim       > number of Monte-Carlo (MC) ITERATIONS 
+                      [e.g., 100.]. 
+         ... ...
+  ```
 
 
-Examples of the INPUT and CONFIGURATION files can be found at the [./examples/](https://github.com/asalda/FiCUS/examples/) dedicated folder: [./examples/example.fits](https://github.com/asalda/FiCUS/examples/example.fits) and [./examples/example.fits](https://github.com/asalda/FiCUS/examples/example.ini), respectively. 
+Examples of the INPUT and CONFIGURATION files can be found at the [./FiCUS/examples/](https://github.com/asalda/FiCUS/examples/) dedicated folder: [example.fits](https://github.com/asalda/FiCUS/examples/example.fits) and [example.ini](https://github.com/asalda/FiCUS/examples/example.ini), respectively. 
 
 
 ## Running FiCUS
 Given the name of the INPUT file (`NAME`) and the redshift of the source (`REDSHIFT`), the code can be run in console as a normal `.py` script:
 ```
-> python3.7 ficus-path/ficus.py NAME REDSHIFT
+> python3.7 FiCUS/ficus.py NAME REDSHIFT
 ```
 
 The code can also work within a jupyter-notebook environment (`.ipynb`) using the magic `%run` command:
@@ -76,12 +104,6 @@ The code can also work within a jupyter-notebook environment (`.ipynb`) using th
 
 
 ## Outputs and Plots
-
-
-
-## Tutorials
-
-`/!\  ... work in progress ...  /!\`
 
 
 [^1]: https://trac.nublado.org/
