@@ -50,7 +50,7 @@ $$ --- $$
 - The INPUT `.fits` file must contain, at least, four columns in the first extension after an empty Primary() HDU, with the following names: 
   - 'WAVE'.......... observed-frame wavelength array, in \AA, 
   - 'FLUX'........... spectral flux-density array, in $F_{\lambda}$ units (e.g., erg/s/cm2/AA), 
-  - 'FLUX_ERR'... $1 \sigma$ error on the spectral flux-density, in $F_{\lambda}$ units, 
+  - 'FLUX_ERR'... $1 \sigma$ error on the spectral flux-density, 
   - 'MASK'.......... mask array (0 = masked, 1 = un-masked).
   
   This INPUT file can, for example, inherit the `NAME` of the spectrum to be fitted, and must always be placed into the [./inputs/](https://github.com/asalda/FiCUS/inputs/) folder. We note that 'WAVE', 'FLUX' and 'FLUX_ERR'. The binary-array 'MASK' match the length of the WAVE array, and 
