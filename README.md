@@ -5,6 +5,7 @@
 - [Running FiCUS](https://github.com/asalda/FiCUS/edit/main/README.md#running-ficus)
 - [Outputs and plots](https://github.com/asalda/FiCUS/edit/main/README.md#outputs0-and-plots)
 - [Tutorials](https://github.com/asalda/FiCUS/edit/main/README.md#tutorials)
+- [Links and notes](https://github.com/asalda/FiCUS/edit/main/README.md#links-and-notes)
 
 
 ## Description
@@ -28,7 +29,7 @@ $$ --- $$
 
 
 ## Installation
-`FiCUS` is written in `Python` language. Before installing the code, the user needs to verify that the current working environment is equipped with the following versions and packages, that otherwise can be easily updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
+`FiCUS` is written in `Python` language. Before installing the code, the user needs to verify that the current working environment is equipped with the following versions and basic packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
 ```
 > Python 3.7.4 (or later)
 > Matplotlib 3.1.1 (or later)
@@ -38,16 +39,41 @@ $$ --- $$
 
 Once the previous dependencies are fulfilled, `FiCUS` can be cloned from this repository using [git](https://git-scm.com/), by just plugging into the terminal the following command:
 ```
-git clone --depth 1 https://github.com/asalda/FiCUS/ficus.git
+> git clone --depth 1 https://github.com/asalda/FiCUS/ficus.git
 ```
 
 
 ## Input and configuration files
+- The INPUT file is a `.fits` extension that must contain, at least, the following columns and column-names: 
+  - WAVE....... observed-frame wavelength array, in \AA, 
+  - FLUX....... spectral flux-density array, in F_\lambda units (e.g., erg/s/cm2/AA), 
+  - FLUX_ERR... 1\sigma error on the spectral flux-density, in F_\lambda units, 
+  - MASK....... mask array (0 = masked, 1 = un-masked).
+  
+  The INPUT file must be placed into `ficus-path/inputs/`. A dedicated example of the INPUT file can be found at `/examples/example.fits`.
 
+
+The INPUT ".fits" file must contain:
+         WAVE     > observed-frame wavelength array, in \AA, 
+         FLUX     > spectral flux-density array, in F_\lambda units, 
+         FLUX_ERR > 1\sigma error of the spectral flux-density, in F_\lambda units, 
+         MASK     > mask array (0 = masked, 1 = un-masked), 
+       
+       (see "/examples/example.fits"). 
 
 
 ## Running FiCUS
+Given the name of the INPUT file (`NAME`) and the redshift of the source (`REDSHIFT`), the code can be run in console as a normal `.py` script:
+```
+> python3.7 ficus-path/ficus.py NAME REDSHIFT
+```
 
+The code can also work within a jupyter-notebook environment (.ipynb) using the magical command `%run`:
+```
+> import os
+> os.chdir(ficus-path);
+> %run -i ficus.py
+```
 
 
 ## Outputs and plots
@@ -61,6 +87,8 @@ git clone --depth 1 https://github.com/asalda/FiCUS/ficus.git
 
 ## Links and notes
 [1]: https://trac.nublado.org/
+
+
 
 [2]: https://lmfit.github.io/lmfit-py/
 
