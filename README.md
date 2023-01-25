@@ -1,11 +1,11 @@
 # FiCUS (FItting the stellar Continuum of Uv Spectra)
-- [Description](https://github.com/asalda/FiCUS/blob/main/README.md#description)
-- [Installation](https://github.com/asalda/FiCUS/blob/main/README.md#install)
-- [Input and configuration files](https://github.com/blob/asalda/FiCUS/main/README.md#the-input-and-configuration-files)
-- [Running FiCUS](https://github.com/asalda/FiCUS/blob/main/README.md#running-ficus)
-- [Outputs and plots](https://github.com/asalda/FiCUS/blob/main/README.md#outputs0-and-plots)
-- [Tutorials](https://github.com/asalda/FiCUS/main/blob/README.md#tutorials)
-- [Links and notes](https://github.com/asalda/FiCUS/blob/main/README.md#links-and-notes)
+- [Description](https://github.com/asalda/blob/FiCUS/main/README.md#description)
+- [Installation](https://github.com/asalda/blob/FiCUS/main/README.md#install)
+- [Input and configuration files](https://github.com/asalda/blob/FiCUS/main/README.md#the-input-and-configuration-files)
+- [Running FiCUS](https://github.com/asalda/blob/FiCUS/main/README.md#running-ficus)
+- [Outputs and plots](https://github.com/asalda/blob/FiCUS/main/README.md#outputs0-and-plots)
+- [Tutorials](https://github.com/asalda/blob/FiCUS/main/README.md#tutorials)
+- [Links and notes](https://github.com/asalda/blob/FiCUS/main/README.md#links-and-notes)
 
 
 ## Description
