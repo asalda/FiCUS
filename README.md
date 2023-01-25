@@ -1,11 +1,11 @@
 # FiCUS (FItting the stellar Continuum of Uv Spectra)
-- [Description](https://github.com/asalda/FiCUS/main/README.md#description)
-- [Installation](https://github.com/asalda/FiCUS/main/README.md#install)
-- [Input and Configuration files](https://github.com/asalda/FiCUS/main/README.md#the-input-and-configuration-files)
-- [Running FiCUS](https://github.com/asalda/FiCUS/main/README.md#running-ficus)
-- [Outputs and Plots](https://github.com/asalda/FiCUS/main/README.md#outputs0-and-plots)
-- [Tutorials](https://github.com/asalda/FiCUS/main/README.md#tutorials)
-- [Links and Notes](https://github.com/asalda/FiCUS/main/README.md#links-and-notes)
+- [Description](https://github.com/asalda/FiCUS/README.md#description)
+- [Installation](https://github.com/asalda/FiCUS/README.md#install)
+- [Input and Configuration files](https://github.com/asalda/FiCUS/README.md#the-input-and-configuration-files)
+- [Running FiCUS](https://github.com/asalda/FiCUS/README.md#running-ficus)
+- [Outputs and Plots](https://github.com/asalda/FiCUS/README.md#outputs0-and-plots)
+- [Tutorials](https://github.com/asalda/FiCUS/README.md#tutorials)
+- [Links and Notes](https://github.com/asalda/FiCUS/README.md#links-and-notes)
 
 
 ## Description
@@ -28,7 +28,7 @@ Finally, the best fit is chosen via a non-linear $\chi^2$ minimization algorithm
 $$ --- $$
 
 - The code is structured in two `.py` files:
-  - ```ficus.py``` is the main script. It reads the INPUT file provided by the user, and performs the fit (see [Running FiCUS](https://github.com/asalda/FiCUS/edit/main/README.md#running-ficus)) according to the options enclosed in the CONFIGURATION file (see [Input and Configuration files](https://github.com/asalda/FiCUS/edit/main/README.md#the-input-and-configuration-files)). Apart from the best-fit parameters, it creates the OUTPUT files and figures (see [Outputs and Plots](https://github.com/asalda/FiCUS/edit/main/README.md#outputs0-and-plots)). 
+  - ```ficus.py``` is the main script. It reads the INPUT file provided by the user, and performs the fit (see [Running FiCUS](https://github.com/asalda/FiCUS/README.md#running-ficus)) according to the options enclosed in the CONFIGURATION file (see [Input and Configuration files](https://github.com/asalda/FiCUS/README.md#the-input-and-configuration-files)). Apart from the best-fit parameters, it creates the OUTPUT files and figures (see [Outputs and Plots](https://github.com/asalda/FiCUS/README.md#outputs0-and-plots)). 
   - ```ficus_functions.py``` is a secondary script. After being called, all the functions are imported into `ficus.py`. This file includes pre-defined scripts for spectral analysis, loading INPUT files and handling wityh data and modeld, as well as functions for the fitting routine, SED parameters calculations and plotting. 
 
 
@@ -48,18 +48,18 @@ $$ --- $$
 
 
 ## Input and Configuration files
-- The INPUT file is a `.fits` file that must contain, at least, the following extensions and names: 
+- The INPUT `.fits` file must contain, at least, four columns in the first extension after an empty Primary() HDU, with the following names: 
   - 'WAVE'.......... observed-frame wavelength array, in \AA, 
   - 'FLUX'........... spectral flux-density array, in F_\lambda units (e.g., erg/s/cm2/AA), 
   - 'FLUX_ERR'... 1 $\sigma$ error on the spectral flux-density, in F_\lambda units, 
   - 'MASK'.......... mask array (0 = masked, 1 = un-masked).
   
-  This INPUT file can, for example, inherit the `NAME` of the spectrum to be fitted, and must always be placed into the `ficus-path/inputs/` folder. We note that 'WAVE', 'FLUX' and 'FLUX_ERR'. The binary-array 'MASK' match the length of the WAVE array, and 
+  This INPUT file can, for example, inherit the `NAME` of the spectrum to be fitted, and must always be placed into the [./inputs/](https://github.com/asalda/FiCUS/inputs/) folder. We note that 'WAVE', 'FLUX' and 'FLUX_ERR'. The binary-array 'MASK' match the length of the WAVE array, and 
 
-- The CONFIGURATION file
+- The CONFIGURATION file (It contains all the input parameters that feed the ```ficus.py``` code. It is structured as in the ```/examples/example.ini``` default example:)
 
 
-Dedicated examples of the INPUT (`example.fits`) and CONFIGURATION files (`example.ini`) can be found at [./examples/](https://github.com/asalda/FiCUS/main/examples/) folder.
+Examples of the INPUT (`example.fits`) and CONFIGURATION files (`example.ini`) can be found at the [./examples/](https://github.com/asalda/FiCUS/examples/) dedicated folder.
 
 
 ## Running FiCUS
@@ -68,7 +68,7 @@ Given the name of the INPUT file (`NAME`) and the redshift of the source (`REDSH
 > python3.7 ficus-path/ficus.py NAME REDSHIFT
 ```
 
-The code can also work within a jupyter-notebook environment (`.ipynb`) using the magical command `%run`:
+The code can also work within a jupyter-notebook environment (`.ipynb`) using the magic `%run` command:
 ```
 > import os
 > os.chdir(ficus-path);
@@ -86,61 +86,5 @@ The code can also work within a jupyter-notebook environment (`.ipynb`) using th
 
 
 ## Links and Notes
-[1]: https://trac.nublado.org/
-
-
-
-[2]: https://lmfit.github.io/lmfit-py/
-
-#### ```ficus.py``` -> main script. 
- Fit the observed input spectra with the best combination of SSPs models, and return 
- the mean light-fractions (X_i) and attenuation parameter (E_BV, uniform screen of dust). 
- Additionally, a bunch of different SED-derived parameters are calculated. 
- 
- The input spectra have to be placed in the ```/inputs/``` folder as a .fits file with 
- a similar format than in the ```/examples/example.fits``` provided example (i.e. four .fits columns 
- in the first extension after an empty Primary() HDU: 'WAVE, FLUX, FLUX_ERR, MASK'). 
- 
- The masks are included in the same file as an additional binary-array (0 = masked, 1 = un-masked).
- Outputs are saved in .txt/.npy/.pdf format in the ```/outputs/``` folder.
-
- To be run in console as:
- ```
- > python3.7 your-ficus-path/ficus.py
- ```
- 
- To be run into a jupyter-notebook (.ipynb) as:
- ```
- > import os
- > os.chdir(your-ficus-path);
- > %run -i your-ficus-path/ficus.py
- ```
-
-
-#### ```ficus_functions.py``` -> secondary script. 
- After being called, all the analysis and plotting functions are imported into ```ficus.py```.
-
-
-#### ```ficus.ini``` -> configuration file. 
- It contains all the input parameters that feed the ```ficus.py``` code.
- It is structured as in the ```/examples/example.ini``` default example:
- 
- ```> less /examples/example.ini
-   [ficus]
-   spec_name = example
-   plot_mode = yes
-   ssp_models = sb99
-   zarray = 001,004,008,02
-   att_law = reddy16
-   att_igm = no
-   wave_range = 925.,1375.
-   z_spec = 0.33314
-   wave_r = 1000.
-   wave_norm = 1070.,1110.
-   nsim = 100.
-   
-   #EOF
- ```
- 
- [^1]: https://trac.nublado.org/
- [^2]: https://lmfit.github.io/lmfit-py/
+[^1]: https://trac.nublado.org/
+[^2]: https://lmfit.github.io/lmfit-py/
