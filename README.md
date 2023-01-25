@@ -25,9 +25,9 @@ Finally, the best fit is chosen via a non-linear $\chi^2$ minimization algorithm
 
 $$ --- $$
 
-- The code is structured in two `.py` files:
+- The code is composed of two `.py` files:
   - ```ficus.py``` is the main script. It reads the INPUT file provided by the user, and performs the fit (see [Running FiCUS](https://github.com/asalda/FiCUS/README.md#running-ficus)) according to the options enclosed in the CONFIGURATION file (see [Input and Configuration files](https://github.com/asalda/FiCUS/README.md#the-input-and-configuration-files)). Apart from the best-fit parameters, it creates the OUTPUT files and figures (see [Outputs and Plots](https://github.com/asalda/FiCUS/README.md#outputs0-and-plots)). 
-  - ```ficus_functions.py``` is a secondary script. After being called, all the functions are imported into `ficus.py`. This file includes pre-defined scripts for spectral analysis, loading INPUT files and handling wityh data and modeld, as well as functions for the fitting routine, SED parameters calculations and plotting. 
+  - ```ficus_functions.py``` is a secondary script. After being called, all the functions are imported into the main script. This file includes pre-defined scripts for spectral analysis, loading INPUT files and handling wityh data and modeld, as well as functions for the fitting routine, SED parameters calculations and plotting. 
 
 
 ## Installation
@@ -52,53 +52,44 @@ $$ --- $$
   - 'FLUX_ERR'... $1 \sigma$ error on the spectral flux-density, 
   - 'MASK'.......... mask array (0 = masked, 1 = un-masked).
   
-  The binary-array 'MASK' is . The INPUT file can, for example, inherit the `NAME` of the spectrum to be fitted, and must always be placed into the [./FiCUS/inputs/](https://github.com/asalda/FiCUS/inputs/) folder beforehand.
+  The 'MASK' extension is . The INPUT file can, for example, inherit the name (`SPEC-NAME`) of the spectrum to be fitted, and must always be placed into the [/FiCUS/inputs/](https://github.com/asalda/FiCUS/inputs/) folder beforehand.
 
-- The CONFIGURATION `.fits` file contains all the input parameters that feed the ```ficus.py``` code.
+- The CONFIGURATION `.ini` file contains all the input parameters that feed the ```ficus.py``` code. Its structure and format is as follows: 
   ```
-  ... ...
-         plot_mode  > activate or desactivate PLOTTING mode 
-                      [yes // no], 
-         
-         ssp_models > pick your preferred stellar LIBRARY 
-                      [sb99 (Starburst99, Leitherer et al. 2011; ApJS, 123, 1) //
-                       bpass (BPASSv2.2.1, Eldridge et al. 2017; PASA, 34, E058)], 
-         
-         zarray     > specify a set of METALLICITIES 
-                      [001,004,008,01,02 (standing for 1/20, 1/5, 2/5, 1 and/or 2 Z_\sun)], 
-                      
-         att_law    > choose the DUST attenuation law 
-                      [r16 (Reddy et al. 2016; ApJ, 828, 2) //
-                       smc (Prevot et al. 1994; A&A, 132, 389-392)], 
-         
-         wave_range > rest-frame WAVELENGTH range to be considered in the fit 
-                      [e.g., 1200.,1920. (\lambda_min, \lambda_max; in \AA)], 
-         
-         wave_norm  > rest-frame wavelength interval for NORMALIZATION of the spectrum
-                      [e.g., 1350.,1370. (in \AA)], 
-         
-         r_obs      > instrumental RESOLUTION of the input spectra 
-                      [as R = (\Delta \lambda) / \lambda], 
-         
-         nsim       > number of Monte-Carlo (MC) ITERATIONS 
-                      [e.g., 100.]. 
-         ... ...
+  [FiCUS]
+   plot_mode  > activate or desactivate PLOTTING mode 
+                [yes // no], 
+   ssp_models > pick your preferred stellar LIBRARY 
+                [sb99 (Starburst99, Leitherer et al. 2010; ApJS, 189, 2) //
+                 bpass (BPASSv2.2.1, Eldridge et al. 2017; PASA, 34, E058)], 
+   zarray     > specify a set of METALLICITIES 
+                [001,004,008,01,02 (standing for 1/20, 1/5, 2/5, 1 and/or 2 Z_\sun)], 
+   att_law    > choose the DUST attenuation law 
+                [r16 (Reddy et al. 2016; ApJ, 828, 2) //
+                 smc (Prevot et al. 1994; A&A, 132, 389-392)], 
+   wave_range > rest-frame WAVELENGTH range to be considered in the fit 
+                [e.g., 1200.,1920. (\lambda_min, \lambda_max; in \AA)], 
+   wave_norm  > rest-frame wavelength interval for NORMALIZATION of the spectrum
+                [e.g., 1350.,1370. (in \AA)], 
+   r_obs      > instrumental RESOLUTION of the input spectra 
+                [as R = (\Delta \lambda) / \lambda], 
+   nsim       > number of Monte-Carlo (MC) ITERATIONS 
+                [e.g., 100.]. 
   ```
 
-
-Examples of the INPUT and CONFIGURATION files can be found at the [./FiCUS/examples/](https://github.com/asalda/FiCUS/examples/) dedicated folder: [example.fits](https://github.com/asalda/FiCUS/examples/example.fits) and [example.ini](https://github.com/asalda/FiCUS/examples/example.ini), respectively. 
+Examples of the INPUT and CONFIGURATION files can be found at the [/FiCUS/examples/](https://github.com/asalda/FiCUS/examples/) dedicated folder: [example.fits](https://github.com/asalda/FiCUS/examples/example.fits) and [example.ini](https://github.com/asalda/FiCUS/examples/example.ini), respectively. 
 
 
 ## Running FiCUS
-Given the name of the INPUT file (`NAME`) and the redshift of the source (`REDSHIFT`), the code can be run in console as a normal `.py` script:
+Given the name of the INPUT file (`SPEC-NAME`) and the redshift of the source (`REDSHIFT`), the code can be run in console as a normal `.py` script:
 ```
-> python3.7 FiCUS/ficus.py NAME REDSHIFT
+> python3.7 FiCUS/ficus.py SPEC-NAME REDSHIFT
 ```
 
 The code can also work within a jupyter-notebook environment (`.ipynb`) using the magic `%run` command:
 ```
 > import os
-> os.chdir(ficus-path);
+> os.chdir(/FiCUS);
 > %run -i ficus.py
 ```
 
