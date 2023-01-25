@@ -80,7 +80,7 @@ The code can also work within a jupyter-notebook environment (`.ipynb`) using th
 
 ## Tutorials
 
-`/!\ coming soon /!\`
+`/!\  ... work in progress ...  /!\`
 
 
 ## Links and notes
