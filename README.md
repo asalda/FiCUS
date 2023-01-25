@@ -23,7 +23,7 @@ The best fit is chosen through a non-linear $\chi^2$ minimization algorithm with
 
 $$ --- $$
 
-- The **structure** of the code is as follows:
+- The **code structure** is as follows:
   - ```ficus.py``` is the main script. It reads the INPUT file provided by the user, and performs the FIT (see [Running FiCUS](https://github.com/asalda/FiCUS/edit/main/README.md#running-ficus)) according to the options enclosed in the CONFIGURATION file (see [Input and configuration files](https://github.com/asalda/FiCUS/edit/main/README.md#the-input-and-configuration-files)). Apart from the best-fit parameters, it creates the OUTPUT files and figures (see [Outputs and plots](https://github.com/asalda/FiCUS/edit/main/README.md#outputs0-and-plots)). 
   - ```ficus_functions.py``` is a secondary script. After being called, all the functions are imported into `ficus.py`. This file includes pre-defined scripts for spectral ANALYSIS, loading INPUT files and handling wityh DATA and MODELS, as well as functions for the FITTING routine, SED parameters calculations and PLOTTING. 
 
