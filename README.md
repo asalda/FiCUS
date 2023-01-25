@@ -11,15 +11,17 @@
 ## Description
 `FiCUS` is a customized `Python` script to fit the stellar -continuum of extragalactic ultraviolet (UV) spectra. In short, it takes observed-frame wavelength, flux density (with errors) and user-defined mask arrays, and returns an estimation of the galaxy light-weighted stellar age, metallicity and dust extinction, as well as other secondary Spectral Energy Distribution (SED) parameters. 
 
-The code was first presented in [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract), but the methodology was previously described and tested in [Chisholm et al. 2019](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract). A previous version of the code has been used in other papers such as [Gazagnes et al. 2018](https://ui.adsabs.harvard.edu/abs/2018A%26A...616A..29G/abstract), [Gazagnes et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26A...639A..85G/abstract) and [Saldana-Lopez et al. 2022a](https://ui.adsabs.harvard.edu/abs/2022A%26A...663A..59S/abstract). 
+The code was presented in [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract), but the methodology was first described and tested in [Chisholm et al. 2019](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract). A previous version of the code has been used in other papers such as [Gazagnes et al. 2018](https://ui.adsabs.harvard.edu/abs/2018A%26A...616A..29G/abstract), [Gazagnes et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26A...639A..85G/abstract) and [Saldana-Lopez et al. 2022a](https://ui.adsabs.harvard.edu/abs/2022A%26A...663A..59S/abstract). 
 
-The UV stellar continuum modeling $F^{\star}(\lambda)$ is achieved by fitting every observed spectrum with a linear combination of multiple bursts of single-age and single-metallicity single stellar population (SSP) models. The models assume a initial mass function (IMF) with a high-(low-)mass exponent of 2.3 (1.3), and a high-mass cutoff at 100 solar masses. The models include five different metallicities (0.05, 0.2, 0.4 and 1 and x2 the solar value) and ten ages for each metallicity (1, 2, 3, 4, 5, 8, 10, 15, 20 and 40 Myr). A nebular continuum was added to every model by self-consistently processing the original SSP models through the `Cloudy v17.0` code[^1] [(Ferland et al. 2017)](https://ui.adsabs.harvard.edu/abs/2017RMxAA..53..385F/abstract), assuming similar gas-phase and stellar metallicities, an ionization parameter of $\log(U)=-2.5$, and a volume hydrogen density of $n_H = 100 cm^{-3}$. Finally, adopting a simple geometry where _all_ the light is attenuated by a uniform foreground slab of gas surrounding the galaxy, this results in: 
+The UV stellar continuum modeling $F^{\star}(\lambda)$ is achieved by fitting observed spectra with a linear combination of multiple bursts of single-age and single-metallicity stellar population (SSP) models. The models assume a initial mass function (IMF) with a high-(low-)mass exponent of 2.3 (1.3), and a high-mass cutoff at 100 solar masses. The models include five different metallicities (0.05, 0.2, 0.4 and 1 and x2 the solar value) and ten ages for each metallicity (1, 2, 3, 4, 5, 8, 10, 15, 20 and 40 Myr). A nebular continuum was added to every model by self-consistently processing the original SSPs through the `Cloudy v17.0` code[^1] [(Ferland et al. 2017)](https://ui.adsabs.harvard.edu/abs/2017RMxAA..53..385F/abstract), assuming similar gas-phase and stellar metallicities, an ionization parameter of $\log(U)=-2.5$, and a volume hydrogen density of $n_H = 100 cm^{-3}$. Finally, adopting a simple geometry where _all_ the light is attenuated by a uniform foreground slab of gas surrounding the galaxy, this results in: 
 
 $$ F^{\star}(\lambda) = 10^{-0.4 k_{\lambda} E_{B-V}} \sum_{i,j} X_{ij} F^{ij} $$
 
-where $F^{ij}$ represents the corresponding model at the i-_th_ age and j-_th_ metallicity, and the $X_{ij}$ linear coefficients determine the weight of every SSP within the fit. $k_{\lambda}$ is given by the adopted dust-attenuation law, and $E_{B-V}$ is the so-called dust-attenuation parameter (in magnitudes).
+where $F^{ij}$ represents the corresponding model at the i-_th_ age and j-_th_ metallicity, and the $X_{ij}$ linear coefficients determine the weight of every model within the fit. $k_{\lambda}$ is given by the dust-attenuation law, and $E_{B-V}$ is the so-called dust-attenuation parameter (in magnitudes). 
 
-The best fit is chosen through a non-linear $\chi^2$ minimization algorithm with respect to the observed data (`lmfit` package[^2], see [Newville et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ascl.soft06014N/abstract)), and the errors are derived in a Monte-Carlo (MC) way, varying the observed pixel fluxes by a Gaussian distribution whose mean is zero and standard deviation is the 1$\sigma-$error of the flux at the same pixel, and re-fitting the continuum over a number iterations defined by the user (see below).
+S99, BPASS, Reddy and SMC
+
+The best fit is chosen via a non-linear $\chi^2$ minimization algorithm with respect to the observed data (`lmfit` package[^2], see [Newville et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ascl.soft06014N/abstract)), and the errors are derived in a Monte-Carlo (MC) way, varying the observed pixel fluxes by a Gaussian distribution whose mean is zero and standard deviation is the 1$\sigma$-error of the flux at the same pixel, and re-fitting the continuum over a certain number of iterations.
 
 $$ --- $$
 
@@ -29,7 +31,7 @@ $$ --- $$
 
 
 ## Installation
-`FiCUS` is written in `Python` language. Before installing the code, the user needs to verify that the current working environment is equipped with the following versions and basic packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
+`FiCUS` is written in `Python` language. Before installing the code, the current working environment must be equipped with the following versions and basic packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
 ```
 > Python 3.7.4 (or later)
 > Matplotlib 3.1.1 (or later)
@@ -139,3 +141,4 @@ The code can also work within a jupyter-notebook environment (`.ipynb`) using th
  ```
  
  [^1]: https://trac.nublado.org/
+ [^2]: https://lmfit.github.io/lmfit-py/
