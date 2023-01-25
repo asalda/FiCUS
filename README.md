@@ -5,7 +5,6 @@
 - [Running FiCUS](https://github.com/asalda/FiCUS/README.md#running-ficus)
 - [Outputs and Plots](https://github.com/asalda/FiCUS/README.md#outputs0-and-plots)
 - [Tutorials](https://github.com/asalda/FiCUS/README.md#tutorials)
-- [Links and Notes](https://github.com/asalda/FiCUS/README.md#links-and-notes)
 
 
 ## Description
@@ -13,7 +12,7 @@
 
 The code was presented in [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract), but the methodology was first described and tested in [Chisholm et al. 2019](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract). A previous version of the code has been extensively used in other papers such as [Gazagnes et al. 2018](https://ui.adsabs.harvard.edu/abs/2018A%26A...616A..29G/abstract), [Gazagnes et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26A...639A..85G/abstract) and [Saldana-Lopez et al. 2022a](https://ui.adsabs.harvard.edu/abs/2022A%26A...663A..59S/abstract). 
 
-The UV stellar continuum modeling $F_{\lambda}^{\star}$ is achieved by fitting observed spectra with a linear combination of single-burst stellar population (SSP) theoretical models: STARBURST99 ([Leitherer et al. 2010](https://ui.adsabs.harvard.edu/abs/2010ApJS..189..309L/abstract)) or BPASS ([Eldridge et al. 2017](https://ui.adsabs.harvard.edu/abs/2017PASA...34...58E/abstract)). These models assume a initial mass function (IMF) with a high-(low-)mass exponent of 2.3 (1.3), and a high-mass cutoff at 100 $M_{\odot}$. The models include five different metallicities (0.05, 0.2, 0.4, 1 and 2 $Z_{\odot}$) and ten ages for each metallicity (1, 2, 3, 4, 5, 8, 10, 15, 20 and 40 Myr). A nebular continuum was added to every model by self-consistently processing the original SSPs through the `Cloudy v17.0` code[^1] [(Ferland et al. 2017)](https://ui.adsabs.harvard.edu/abs/2017RMxAA..53..385F/abstract), assuming similar gas-phase and stellar metallicities, an ionization parameter of $\log(U)=-2.5$, and a volume hydrogen density of $n_H = 100 cm^{-3}$. Adopting a simple geometry where _all_ the light is attenuated by a uniform foreground slab of gas surrounding the galaxy, this results in: 
+The UV stellar continuum modeling $F_{\lambda}^{\star}$ is achieved by fitting observed spectra with a linear combination of single-burst stellar population (SSP) theoretical models: `Starburst99` ([Leitherer et al. 2010](https://ui.adsabs.harvard.edu/abs/2010ApJS..189..309L/abstract)) or `BPASS` ([Eldridge et al. 2017](https://ui.adsabs.harvard.edu/abs/2017PASA...34...58E/abstract)). These models assume a initial mass function (IMF) with a high-(low-)mass exponent of 2.3 (1.3), and a high-mass cutoff at $100 M_{\odot}$. The models include five different metallicities (0.05, 0.2, 0.4, 1 and $2 Z_{\odot}$) and ten ages for each metallicity (1, 2, 3, 4, 5, 8, 10, 15, 20 and 40 Myr). A nebular continuum was added to every model by self-consistently processing the original SSPs through the `Cloudy v17.0` code[^1] [(Ferland et al. 2017)](https://ui.adsabs.harvard.edu/abs/2017RMxAA..53..385F/abstract), assuming similar gas-phase and stellar metallicities, an ionization parameter of $\log(U)=-2.5$, and a volume hydrogen density of $n_H = 100 cm^{-3}$. Adopting a simple geometry where _all_ the light is attenuated by a uniform foreground slab of gas surrounding the galaxy, this results in: 
 
 $$ F_{\lambda}^{\star} = 10^{-0.4 k_{\lambda} E_{B-V}} \sum_{i,j} X_{ij} F_{\lambda}^{ij} $$
 
@@ -23,7 +22,7 @@ $$ i \equiv 0.05, 0.2, 0.4, 1, 2 Z_{\odot} $$
 
 where $F_{\lambda}^{ij}$ represents the corresponding model at the i-_th_ age and j-_th_ metallicity, and the $X_{ij}$ linear coefficients determine the weight of every model within the fit. $k_{\lambda}$ is given by the dust-attenuation law (either [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) or SMC, [Prevot et al. 1984](https://ui.adsabs.harvard.edu/abs/1984A%26A...132..389P/abstract)), and $E_{B-V}$ is the so-called dust-attenuation parameter (in magnitudes). 
 
-Finally, the best fit is chosen via a non-linear $\chi^2$ minimization algorithm with respect to the observed data (`lmfit` package[^2], see [Newville et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ascl.soft06014N/abstract)), and the errors are derived in a Monte-Carlo (MC) way, varying the observed pixel fluxes by a Gaussian distribution whose mean is zero and standard deviation is the 1 $\sigma$ error of the flux at the same pixel, and re-fitting the continuum over a certain number of iterations.
+Finally, the best fit is chosen via a non-linear $\chi^2$ minimization algorithm with respect to the observed data (`lmfit` package[^2], see [Newville et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ascl.soft06014N/abstract)), and the errors are derived in a Monte-Carlo (MC) way, varying the observed pixel fluxes by a Gaussian distribution whose mean is zero and standard deviation is the $1 \sigma$ error of the flux at the same pixel, and re-fitting the continuum over a certain number of iterations.
 
 $$ --- $$
 
@@ -50,8 +49,8 @@ $$ --- $$
 ## Input and Configuration files
 - The INPUT `.fits` file must contain, at least, four columns in the first extension after an empty Primary() HDU, with the following names: 
   - 'WAVE'.......... observed-frame wavelength array, in \AA, 
-  - 'FLUX'........... spectral flux-density array, in F_\lambda units (e.g., erg/s/cm2/AA), 
-  - 'FLUX_ERR'... 1 $\sigma$ error on the spectral flux-density, in F_\lambda units, 
+  - 'FLUX'........... spectral flux-density array, in $F_{\lambda}$ units (e.g., erg/s/cm2/AA), 
+  - 'FLUX_ERR'... $1 \sigma$ error on the spectral flux-density, in $F_{\lambda}$ units, 
   - 'MASK'.......... mask array (0 = masked, 1 = un-masked).
   
   This INPUT file can, for example, inherit the `NAME` of the spectrum to be fitted, and must always be placed into the [./inputs/](https://github.com/asalda/FiCUS/inputs/) folder. We note that 'WAVE', 'FLUX' and 'FLUX_ERR'. The binary-array 'MASK' match the length of the WAVE array, and 
@@ -59,7 +58,7 @@ $$ --- $$
 - The CONFIGURATION file (It contains all the input parameters that feed the ```ficus.py``` code. It is structured as in the ```/examples/example.ini``` default example:)
 
 
-Examples of the INPUT (`example.fits`) and CONFIGURATION files (`example.ini`) can be found at the [./examples/](https://github.com/asalda/FiCUS/examples/) dedicated folder.
+Examples of the INPUT and CONFIGURATION files can be found at the [./examples/](https://github.com/asalda/FiCUS/examples/) dedicated folder: [./examples/example.fits](https://github.com/asalda/FiCUS/examples/example.fits) and [./examples/example.fits](https://github.com/asalda/FiCUS/examples/example.ini), respectively. 
 
 
 ## Running FiCUS
@@ -85,6 +84,5 @@ The code can also work within a jupyter-notebook environment (`.ipynb`) using th
 `/!\  ... work in progress ...  /!\`
 
 
-## Links and Notes
 [^1]: https://trac.nublado.org/
 [^2]: https://lmfit.github.io/lmfit-py/
