@@ -33,9 +33,9 @@ $$ --- $$
 ## Installation
 `FiCUS` is written in `Python` language. Before installing the code, the current working environment must be equipped with the following versions and basic packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
 ```
-> Python 3.7.4 (or later)
-> Matplotlib 3.1.1 (or later)
-> Astropy 4.0 (or later)
+> python 3.7.4 (or later)
+> matplotlib 3.1.1 (or later)
+> astropy 4.0 (or later)
 > lmfit 1.0.0 (or later)
 ```
 
