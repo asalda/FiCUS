@@ -67,7 +67,7 @@ $$ --- $$
 | `r_obs` | instrumental RESOLUTION of the input spectra | number ( $R = \lambda / \Delta \lambda$ ) |
 | `nsim` | number of Monte-Carlo (MC) ITERATIONS | number |
 
-Examples of the INPUT and CONFIGURATION files can be found at the [/FiCUS/examples/](examples/) dedicated folder: [example.fits](examples/example.fits) and [example.ini](examples/example.ini), respectively. 
+Examples of the INPUT and CONFIGURATION files can be found at the [/FiCUS/examples/](examples/) dedicated folder: [example.fits](examples/) and [example.ini](examples/example.ini), respectively. 
 
 
 ## Running FiCUS
@@ -114,18 +114,20 @@ When the code runs successfully, the terminal will print the name of the INPUT f
 ... in which the continuum SED for the CDFS017345 VANDELS spectrum at z = 3.6052 (example taken from [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract)) is modeled using the `Starburst99` stellar library and a set of x4 metallicities (0.05, 0.2, 0.4, $1 Z_{\odot}$). Dust attenuates the stellar continuum following the [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) prescription. The wavelength range considered in the fit is $1200-1920$ angstroms, and the output SEDs are normalized to $1350-1370$ angstroms. The VANDELS resolution is $R = 600$, and the number of MC realizations is fixed to x100. 
 
 ## Outputs and Plots
-Multiple **OUTPUT** files are generated into the [/FiCUS/outputs/](outputs/) folder after a succesful fit is completed, in `.txt` and `.npy` formats. The `.txt` files are easily readable and contain self-explanatory information about the best-fit parameters, SEDs and other derived parameters (* = `SPEC-NAME` of the INPUT file). Concretely: 
-  - `*_ficus_fit.txt`: it contains the best-fit reduced chi-squared ( $\chi^2_{\nu}$ ) value, average light-weighted stellar age ( Age(Myr) ) metallicity ( $Z_{\star} (Z_{\odot})$ ), light-fractions ( $X_{ij}$ ) and dust attenuation parameter ( $E_{B-V}$ (mag.)), with errors, 
-  - `*_ficus_par.txt`: list of secondary SED parameters, with errors (see comments in file for definition and units), 
-  - `*_ficus_SED.txt`: original spectrum and best-fit stellar continuum (SED), with errors, 
-  - `*_ficus_SEDfull.txt`: attenuated and dust-free best-fit SED extended to _all_ wavelengths defined by the stellar bases. 
+After a succesful fit, multiple **OUTPUT** files in `.txt` and `.npy` formats are generated into the [/FiCUS/outputs/](outputs/) folder. On the one hand, `.txt` files are easily readable and contain self-explanatory information (see commented lines) about the best-fit parameters and SEDs. Concretely: 
+  - `*_ficus_fit.txt`: it includes the reduced chi-squared value ( $\chi^2_{\nu}$ ), the average light-weighted stellar age ( Age(Myr) ) and metallicity ( $Z_{\star} (Z_{\odot})$ ), best-fit light-fractions ( $X_{ij}$ ) and dust attenuation ( $E_{B-V}$ (mag.)), with errors, 
+  - `*_ficus_par.txt`: list of secondary SED parameters, with errors (see comments for actual definition and units), 
+  - `*_ficus_SED.txt`: original spectrum and best-fit stellar continuum (SEDs), with errors, 
+  - `*_ficus_SEDfull.txt`: attenuated and dust-free stellar SEDs extended to the _whole_ wavelength range defined by the stellar bases. 
 
-Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf` format, with the same name as the INPUT file. This file is saved in the [/FiCUS/outputs/](outputs/) directory, and it constitutes of three main panels: 
-1. (_Top:_) displays the (normalized) observed and error spectra as well as the best-fit stellar continuum SED; a bunch of default stellar / nebular / ISM lines are identified; 
-2. (_Bottom left:_) shows histograms with the best-fit light-fractions as a function of stellar age and metallicity; and
+On the other hand, the `.npy` files store the results from the MC iterations, in a similar format as the former text files. 
+
+Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf`, with the same name as the INPUT file. This file is saved into the [/FiCUS/outputs/](outputs/) directory, and it constitutes of three main panels: 
+1. (_Top:_) displays the (normalized) observed and error spectra as well as the best-fit stellar continuum SEDs; a bunch of default stellar / nebular / ISM lines are identified; 
+2. (_Bottom left:_) shows histograms with the best-fit light-fractions as a function of stellar age and metallicity; 
 3. (_Bottom right:_) inclcudes a summary chart with the main best-fit parameters. 
 
-An example of the plot for the previous CDFS017345 SED fit with `FiCUS` is visualized below. 
+An example of `FiCUS` plot for the previous CDFS017345 SED fit is visualized below. 
 
 ![plot_example](examples/example.png)
 
