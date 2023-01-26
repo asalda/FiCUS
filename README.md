@@ -19,7 +19,7 @@ $$ i \equiv 1, 2, 3, 4, 5, 8, 10, 15, 20, 40 Myr $$
 
 $$ i \equiv 0.05, 0.2, 0.4, 1, 2 Z_{\odot} $$
 
-where $F_{\lambda}^{ij}$ represents the corresponding model at the i-_th_ age and j-_th_ metallicity, and the $X_{ij}$ linear coefficients determine the weight of every model within the fit. $k_{\lambda}$ is given by the dust-attenuation law (either [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) or SMC, [Prevot et al. 1984](https://ui.adsabs.harvard.edu/abs/1984A%26A...132..389P/abstract)), and $E_{B-V}$ is the so-called dust-attenuation parameter (in magnitudes). 
+... where $F_{\lambda}^{ij}$ represents the corresponding model at the i-_th_ age and j-_th_ metallicity, and the $X_{ij}$ linear coefficients determine the weight of every model within the fit. $k_{\lambda}$ is given by the dust-attenuation law (either [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) or SMC, [Prevot et al. 1984](https://ui.adsabs.harvard.edu/abs/1984A%26A...132..389P/abstract)), and $E_{B-V}$ is the so-called dust-attenuation parameter (in magnitudes). 
 
 Finally, the best fit is chosen via a non-linear $\chi^2$ minimization algorithm with respect to the observed data (`lmfit` package[^4], see [Newville et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ascl.soft06014N/abstract)), and the errors are derived in a Monte-Carlo (MC) way, varying the observed pixel fluxes by a Gaussian distribution whose mean is zero and standard deviation is the $1 \sigma$ error of the flux at the same pixel, and re-fitting the continuum over a certain number of iterations.
 
@@ -62,7 +62,7 @@ $$ --- $$
    ssp_models > pick your preferred stellar LIBRARY 
                 [sb99 (Starburst99) // bpass (BPASSv2.2.1)], 
    zarray     > specify a set of METALLICITIES 
-                [001,004,008,01,02 (standing for 1/20, 1/5, 2/5, 1 and 2 Z_\sun)], 
+                [001,004,008,02,04 (standing for 1/20, 1/5, 2/5, 1 and 2 Z_\sun)], 
    att_law    > choose the DUST attenuation law 
                 [r16 (Reddy et al. 2016) // smc (Prevot et al. 1994)], 
    wave_range > rest-frame WAVELENGTH range to be considered in the fit 
@@ -84,16 +84,45 @@ Given the name of the INPUT file (`SPEC-NAME`) and the redshift of the source (`
 > python3.7 ficus-path/FiCUS/ficus.py SPEC-NAME REDSHIFT
 ```
 
-where `ficus-path` corresponds to the local path in which the code was initially placed (see [Installation](https://github.com/asalda/FiCUS/README.md#install)). The code can also work within a jupyter-notebook environment (`.ipynb`) using the magic command `%run`:
+... where `ficus-path` corresponds to the local path in which the code was initially placed (see [Installation](https://github.com/asalda/FiCUS/README.md#install)). The code can also work within a jupyter-notebook environment (`.ipynb`) using the magic command `%run`:
 ```
 > import os
 > os.chdir(path-to-ficus/FiCUS/);
 > %run -i ficus.py
 ```
 
+When the code runs successfully, the terminal will print the name of the INPUT file, as well as the input parameters selected in the CONFIGURATION file. Succesfull fits will prompt the quote `# done!` when the process is finished. A typical console interface can be like this:
+```
+ ############################################################## 
+ 
+ ###   FiCUS: Fitting the stellar Continuum of Uv Spectra   ### 
+ 
+ ############################################################## 
+   
+ ### Running FiCUS (ficus.py) for example.fits ...
+ 
+ ### inputs ### 
+ # spec_name   --> example
+ # z_spec      --> 3.6052
+ # plot_mode   --> yes
+ # ssp_models  --> sb99
+ # Zarray      --> ['001', '004', '008', '02']
+ # att_law     --> r16
+ # wave_range  --> [1200. 1920.]
+ # wave_norm   --> [1350. 1370.]
+ # r_obs       --> 600.0
+ # nsim        --> 100
+ 
+ ### plotting...   
+   
+ # done!
+```
+... in which the [example.fits](https://github.com/asalda/FiCUS/examples/example.fits) spectrum at z = 3.6052 (VANDELS-ID: `CDFS017345`) was fitted using the `Starburst99` stellar library and a set of x4 metallicities. The dust attenuates the stellar continuum following [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) prescription. The wavelength range considered in the fit is $1200-1920$ angstroms, and the output SEDs are normalized to $1350-1370$ angstroms. The VANDELS resolution is $R = 600$ (example taken from [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract)).
 
 ## Outputs and Plots
-If the fit is succesfull, `FiCUS` generates different OUTPUT files
+If the fit goes well, `FiCUS` generates different OUTPUT files
+
+If `plot_mode == yes`, a `# plotting!` message will appear as soon as the new figure is created. 
 
 
 [^1]: https://www.stsci.edu/science/starburst99/docs/default.htm
