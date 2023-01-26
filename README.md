@@ -118,9 +118,9 @@ Multiple files are generated after a succesful FIT is completed, in `.txt, .npy`
 If the fit goes well, `FiCUS` generates different OUTPUT files
 
 
-Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf` format, with the same name as the INPUT file. This file is saved in the [/FiCUS/outputs/](https://github.com/asalda/FiCUS/outputs/) directory, and constitutes of three main panels: (1) . An example of the plot for the previous CDFS017345 SED fit is visualize below. 
+Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf` format, with the same name as the INPUT file. This file is saved in the [/FiCUS/outputs/](https://github.com/asalda/FiCUS/tree/main/outputs/) directory, and constitutes of three main panels: (1) . An example of the plot for the previous CDFS017345 SED fit is visualize below. 
 
-![plot_example](https://github.com/asalda/FiCUS/tree/main/outputs/example.pdf)
+![plot_example](https://github.com/asalda/FiCUS/tree/main/examples/example.png)
 
 
 [^1]: https://www.stsci.edu/science/starburst99/docs/default.htm
