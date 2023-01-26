@@ -127,7 +127,7 @@ Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf`,
 2. (_Bottom left:_) shows histograms with the best-fit light-fractions as a function of stellar age and metallicity; 
 3. (_Bottom right:_) inclcudes a summary chart with the main best-fit parameters. 
 
-An example of `FiCUS` plot for the previous CDFS017345 SED fit is visualized below. 
+An example of `FiCUS`'s plot for the previous CDFS017345 is visualized below. 
 
 ![plot_example](examples/example.png)
 
