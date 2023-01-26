@@ -27,11 +27,11 @@ $$ --- $$
 
 - The code is composed of two `.py` files:
   - ```ficus.py``` is the **main** script. It reads the INPUT file provided by the user, and performs the fit according to the options enclosed in the CONFIGURATION file (see [Input and Configuration files](README.md#input-and-configuration-files)). Apart from the best-fit parameters, it creates the OUTPUT files and figures (see [Outputs and Plots](README.md#outputs-and-plots)). 
-  - ```ficus_functions.py``` is a **secondary** script. After being called, all the functions are imported into the main script. This file includes pre-defined scripts for spectral analysis, loading INPUT files and handling wityh data and models, as well as functions for the fitting routine, SED parameters calculations and plotting. 
+  - ```ficus_functions.py``` is a **secondary** script. After being called, all the functions are imported into the main script. This file includes pre-defined functions for spectral analysis, loading INPUT files and handling wityh data and models, as well as functions for the fitting routine, SED parameters calculations and plotting. 
 
 
 ## Installation
-`FiCUS` is written in `Python` language. Before installing the code, the current working environment must be equipped with the following packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
+`FiCUS` is written in `Python` language. Before installing the code, the working environment must be equipped with the following packages, that otherwise can be easily installed/updated using [pip](https://pypi.org/project/pip/), [conda](https://docs.conda.io/en/latest/) or any other package manager:
 ```
 > python 3.7.4 
 > matplotlib 3.1.1 
@@ -39,7 +39,7 @@ $$ --- $$
 > lmfit 1.0.0 
 ```
 
-... or later versions. Once the previous dependencies are updated, `FiCUS` can be cloned from this repository using [git](https://git-scm.com/), by just plugging into the terminal the following command (we use the option '--depth 1' in order to avoid downloading the entire repository history):
+... or later versions. Once the previous dependencies are updated, `FiCUS` can be cloned from this repository using [git](https://git-scm.com/), by just plugging into the terminal the following command (the option '--depth 1' avoids downloading the entire repository history):
 ```
 > git clone --depth 1 https://github.com/asalda/FiCUS/ficus.git
 ```
@@ -64,7 +64,7 @@ $$ --- $$
 | `att_law` | choose the DUST attenuation law | r16 (Reddy et al. 2016) // smc (Prevot et al. 1994) |
 | `wave_range` |rest-WAVELENGTH range included the fit | $\lambda_{min}, \lambda_{max}$ (in \AA) |
 | `wave_norm` | rest-wavelength interval for NORMALIZATION of the spectra | $\lambda_{max}, \lambda_{min}$ (in \AA) |
-| `r_obs` | instrumental RESOLUTION of the input spectra | $R = \lambda / \Delta \lambda$ |
+| `r_obs` | instrumental RESOLUTION of the input spectra | number ( $R = \lambda / \Delta \lambda$ ) |
 | `nsim` | number of Monte-Carlo (MC) ITERATIONS | number |
 
 Examples of the INPUT and CONFIGURATION files can be found at the [/FiCUS/examples/](examples/) dedicated folder: [example.fits](examples/example.fits) and [example.ini](examples/example.ini), respectively. 
@@ -118,8 +118,8 @@ Multiple files are generated after a succesful fit is completed, in `.txt, .npy`
 
 
 Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf` format, with the same name as the INPUT file. This file is saved in the [/FiCUS/outputs/](outputs/) directory, and it constitutes of three main panels: 
-1. (_Top:_) displays the (normalized) observed and error spectra as well as the best-fit stellar continuum SED; 
-2. (_Bottom left:_) shows histograms with the best-fit light-fractions as a function of stellar age and metallicity; and  
+1. (_Top:_) displays the (normalized) observed and error spectra as well as the best-fit stellar continuum SED; a bunch of default stellar/nebular/ISM lines are identified; 
+2. (_Bottom left:_) shows histograms with the best-fit light-fractions as a function of stellar age and metallicity; and
 3. (_Bottom right:_) inclcudes a summary chart with the main best-fit parameters. 
 
 An example of the plot for the previous CDFS017345 SED fit with `FiCUS` is visualized below. 
