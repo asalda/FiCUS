@@ -52,7 +52,7 @@ $$ --- $$
   - 'FLUX_ERR'... $1 \sigma$ error on the spectral flux-density, 
   - 'MASK'.......... mask array (0 = masked, 1 = un-masked).
   
-  The INPUT file can, for example, inherit the name (`SPEC-NAME`) of the spectrum to be fitted, and must always be placed into the [/FiCUS/inputs/](inputs/) folder beforehand. The 'MASK' extension of the INPUT file is an binary-array of the same length as 'WAVE', and indicates whether the 'FLUX' and 'FLUX_ERR' values at a certain wavelength $\lambda_i$ will be excluded (0 = masked) or considered (1 = un-masked) in the fit. 
+  The INPUT file can, for example, inherit the name (`SPEC-NAME`) of the spectrum to be fitted, and must always be placed into the [/FiCUS/inputs/](inputs/) folder beforehand. The 'MASK' extension of the INPUT file is a binary-array of the same length as 'WAVE', and indicates whether the 'FLUX' and 'FLUX_ERR' values at a certain wavelength $\lambda_i$ will be excluded (0 = masked) or considered (1 = un-masked) in the fit. 
 
 - The **CONFIGURATION** `ficus.ini` file contains all the input parameters and options that feed the main code:
   
@@ -83,7 +83,7 @@ Given the name of the INPUT file (`SPEC-NAME`) and the redshift of the source (`
 > %run -i ficus.py
 ```
 
-When the code runs successfully, the terminal will print the name of the INPUT file, as well as the input parameters selected in the CONFIGURATION file. Succesfull fits will prompt the quote `# done!` when the process is finished. A typical console interface can be like this:
+When the code runs successfully, the terminal will print the name of the INPUT file, as well as the input parameters selected in the CONFIGURATION file. Succesfull fits will prompt the quote `# done!` when the process is finished. A typical console interface would be like this:
 ```
 > python3.7 ficus.py CDFS017345 3.6052
 
