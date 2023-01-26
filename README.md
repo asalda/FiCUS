@@ -58,10 +58,10 @@ $$ --- $$
   
 | Input | Description | Options/Format | 
 | --- | --- | --- |
-| `plot_mode` | activate or desactivate PLOTTING mode | yes // no |
-| `ssp_models` | pick your preferred stellar LIBRARY | sb99 (Starburst99) // bpass (BPASSv2.2.1) |
-| `zarray` | specify a set of METALLICITIES | 001,004,008,02,04 (0.05, 0.2, 0.4, 1 and $2 Z_{\odot}$) |
-| `att_law` | choose the DUST attenuation law | r16 (Reddy et al. 2016) // smc (Prevot et al. 1994) |
+| `plot_mode` | activate or desactivate PLOTTING mode | `yes` // `no` |
+| `ssp_models` | pick your preferred stellar LIBRARY | `sb99` (Starburst99) // `bpass` (BPASSv2.2.1) |
+| `zarray` | specify a set of METALLICITIES | `001,004,008,02,04` (0.05, 0.2, 0.4, 1 and $2 Z_{\odot}$) |
+| `att_law` | choose the DUST attenuation law | `r16` (Reddy et al. 2016) // `smc` (Prevot et al. 1994) |
 | `wave_range` |rest-WAVELENGTH range included the fit | $\lambda_{min}, \lambda_{max}$ (in \AA) |
 | `wave_norm` | rest-wavelength interval for NORMALIZATION of the spectra | $\lambda_{max}, \lambda_{min}$ (in \AA) |
 | `r_obs` | instrumental RESOLUTION of the input spectra ( $R = \lambda / \Delta \lambda$ ) | number |
