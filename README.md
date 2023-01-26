@@ -1,4 +1,4 @@
-# FiCUS (FItting the stellar Continuum of Uv Spectra)
+# FiCUS (FItting the stellar Continuum of Uv Spectra) 
 - [Description](https://github.com/asalda/FiCUS/README.md#description)
 - [Installation](https://github.com/asalda/FiCUS/README.md#install)
 - [Input and Configuration files](https://github.com/asalda/FiCUS/README.md#the-input-and-configuration-files)
