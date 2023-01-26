@@ -39,9 +39,9 @@ $$ --- $$
 > lmfit 1.0.0 
 ```
 
-... or later versions. Once the previous dependencies are updated, `FiCUS` can be cloned from this repository using [git](https://git-scm.com/), by just plugging into the terminal the following command:
+... or later versions. Once the previous dependencies are updated, `FiCUS` can be cloned from this repository using [git](https://git-scm.com/), by just plugging into the terminal the following command (we use the option '--depth 1' in order to avoid downloading the entire repository history):
 ```
-> git clone https://github.com/asalda/FiCUS/ficus.git
+> git clone --depth 1 https://github.com/asalda/FiCUS/ficus.git
 ```
 
 
@@ -111,12 +111,14 @@ When the code runs successfully, the terminal will print the name of the INPUT f
    
  # done!
 ```
-... in which the continuum SED for the CDFS017345 VANDELS spectrum at z = 3.6052 (example taken from [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract)) is modeled using the `Starburst99` stellar library and a set of x4 metallicities. The dust attenuates the stellar continuum following the [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) prescription. The wavelength range considered in the fit is $1200-1920$ angstroms, and the output SEDs are normalized to $1350-1370$ angstroms. The VANDELS resolution is $R = 600$.
+... in which the continuum SED for the CDFS017345 VANDELS spectrum at z = 3.6052 (example taken from [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract)) is modeled using the `Starburst99` stellar library and a set of x4 metallicities. Dust attenuates the stellar continuum following the [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) prescription. The wavelength range considered in the fit is $1200-1920$ angstroms, and the output SEDs are normalized to $1350-1370$ angstroms. The VANDELS resolution is $R = 600$, and the number of MC realizations is fixed to x100. 
 
 ## Outputs and Plots
+Multiple files are generated after a succesful FIT is completed, in `.txt, .npy` and `.pdf` format. The OUPUT files 
 If the fit goes well, `FiCUS` generates different OUTPUT files
 
-Finally, if `plot_mode == yes`, a `# plotting!` message will appear as soon as the new figure is created. This figure is created
+
+Finally, if `plot_mode == yes`, the code generates a deafult plot in `.pdf` format, with the same name as the INPUT file. This file is saved in the [/FiCUS/outputs/](https://github.com/asalda/FiCUS/outputs/) directory, and constitutes of three main panels: (1) . An example of the plot for the previous CDFS017345 is visualize below. 
 
 
 [^1]: https://www.stsci.edu/science/starburst99/docs/default.htm
