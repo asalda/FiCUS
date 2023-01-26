@@ -56,7 +56,7 @@ $$ --- $$
 
 - The **CONFIGURATION** `ficus.ini` file contains all the input parameters and options that feed the main code:
   
-| Command | Description | Options/Format | 
+| Input | Description | Options/Format | 
 | --- | --- | --- |
 | `plot_mode` | activate or desactivate PLOTTING mode | yes // no |
 | `ssp_models` | pick your preferred stellar LIBRARY | sb99 (Starburst99) // bpass (BPASSv2.2.1) |
@@ -64,7 +64,7 @@ $$ --- $$
 | `att_law` | choose the DUST attenuation law | r16 (Reddy et al. 2016) // smc (Prevot et al. 1994) |
 | `wave_range` |rest-WAVELENGTH range included the fit | $\lambda_{min}, \lambda_{max}$ (in \AA) |
 | `wave_norm` | rest-wavelength interval for NORMALIZATION of the spectra | $\lambda_{max}, \lambda_{min}$ (in \AA) |
-| `r_obs` | instrumental RESOLUTION of the input spectra | number ( $R = \lambda / \Delta \lambda$ ) |
+| `r_obs` | instrumental RESOLUTION of the input spectra ( $R = \lambda / \Delta \lambda$ ) | number |
 | `nsim` | number of Monte-Carlo (MC) ITERATIONS | number |
 
 Examples of the INPUT and CONFIGURATION files can be found at the [/FiCUS/examples/](examples/) dedicated folder: [example.fits](examples/) and [example.ini](examples/example.ini), respectively. 
