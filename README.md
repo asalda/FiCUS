@@ -1,7 +1,7 @@
 # FiCUS (FItting the stellar Continuum of Uv Spectra) 
 - [Description](README.md#description)
-- [Installation](hREADME.md#install)
-- [Input and Configuration files](README.md#the-input-and-configuration-files)
+- [Installation](hREADME.md#installation)
+- [Input and Configuration files](README.md#input-and-configuration-files)
 - [Running FiCUS](README.md#running-ficus)
 - [Outputs and Plots](README.md#outputs-and-plots)
 
@@ -9,7 +9,7 @@
 ## Description
 `FiCUS` is a customized `Python` script to fit the stellar continuum of extragalactic ultraviolet (UV) spectra. In short, it takes observed-frame wavelength, flux density (with errors) and user-defined mask arrays, and returns an estimation of the galaxy light-weighted stellar age, metallicity and dust extinction, as well as other secondary Spectral Energy Distribution (SED) parameters. 
 
-The code was presented in [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract), but the methodology was first described and tested in [Chisholm et al. 2019](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract). A previous version of the code has been extensively used in other papers such as [Gazagnes et al. 2018](https://ui.adsabs.harvard.edu/abs/2018A%26A...616A..29G/abstract), [Gazagnes et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26A...639A..85G/abstract) and [Saldana-Lopez et al. 2022a](https://ui.adsabs.harvard.edu/abs/2022A%26A...663A..59S/abstract). 
+The code was presented in [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract), but the methodology was first described and tested in [Chisholm et al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...882..182C/abstract). A previous version of the code has been extensively used in other papers such as [Gazagnes et al. 2018](https://ui.adsabs.harvard.edu/abs/2018A%26A...616A..29G/abstract), [Gazagnes et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26A...639A..85G/abstract) and [Saldana-Lopez et al. 2022a](https://ui.adsabs.harvard.edu/abs/2022A%26A...663A..59S/abstract). 
 
 The UV stellar continuum modeling $F_{\lambda}^{\star}$ is achieved by fitting observed spectra with a linear combination of single-burst stellar population (SSP) theoretical models: `Starburst99`[^1] ([Leitherer et al. 2010](https://ui.adsabs.harvard.edu/abs/2010ApJS..189..309L/abstract)) or `BPASSv2.2.1`[^2] ([Eldridge et al. 2017](https://ui.adsabs.harvard.edu/abs/2017PASA...34...58E/abstract)). These models assume a initial mass function (IMF) with a high-(low-)mass exponent of 2.3 (1.3), and a high-mass cutoff at $100 M_{\odot}$. The models include five different metallicities (0.05, 0.2, 0.4, 1 and $2 Z_{\odot}$) and ten ages for each metallicity (1, 2, 3, 4, 5, 8, 10, 15, 20 and 40 Myr). A nebular continuum was added to every model by self-consistently processing the original SSPs through the `Cloudy v17.0` code[^3] ([Ferland et al. 2017](https://ui.adsabs.harvard.edu/abs/2017RMxAA..53..385F/abstract)), assuming similar gas-phase and stellar metallicities, an ionization parameter of $\log(U)=-2.5$, and a volume hydrogen density of $n_H = 100 cm^{-3}$. Adopting a simple geometry where _all_ the light is attenuated by a uniform foreground slab of dust surrounding the galaxy, the modeled stellar continuum results in: 
 
@@ -26,7 +26,7 @@ Finally, the best fit is chosen via a non-linear $\chi^2$ minimization algorithm
 $$ --- $$
 
 - The code is composed of two `.py` files:
-  - ```ficus.py``` is the **main** script. It reads the INPUT file provided by the user, and performs the fit according to the options enclosed in the CONFIGURATION file (see [Input and Configuration files](README.md#the-input-and-configuration-files)). Apart from the best-fit parameters, it creates the OUTPUT files and figures (see [Outputs and Plots](README.md#outputs0-and-plots)). 
+  - ```ficus.py``` is the **main** script. It reads the INPUT file provided by the user, and performs the fit according to the options enclosed in the CONFIGURATION file (see [Input and Configuration files](README.md#input-and-configuration-files)). Apart from the best-fit parameters, it creates the OUTPUT files and figures (see [Outputs and Plots](README.md#outputs-and-plots)). 
   - ```ficus_functions.py``` is a **secondary** script. After being called, all the functions are imported into the main script. This file includes pre-defined scripts for spectral analysis, loading INPUT files and handling wityh data and models, as well as functions for the fitting routine, SED parameters calculations and plotting. 
 
 
@@ -76,7 +76,7 @@ Given the name of the INPUT file (`SPEC-NAME`) and the redshift of the source (`
 > python3.7 ficus-path/FiCUS/ficus.py SPEC-NAME REDSHIFT
 ```
 
-... where `ficus-path` corresponds to the local path in which the code was initially placed (see [Installation](README.md#install)). The code can also work within a jupyter-notebook environment (`.ipynb`) using the magic command `%run`:
+... where `ficus-path` corresponds to the local path in which the code was initially placed (see [Installation](README.md#installation)). The code can also work within a jupyter-notebook environment (`.ipynb`) using the magic command `%run`:
 ```
 > import os
 > os.chdir(path-to-ficus/FiCUS/);
