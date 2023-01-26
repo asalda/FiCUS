@@ -114,8 +114,7 @@ When the code runs successfully, the terminal will print the name of the INPUT f
 ... in which the continuum SED for the CDFS017345 VANDELS spectrum at z = 3.6052 (example taken from [Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract)) is modeled using the `Starburst99` stellar library and a set of x4 metallicities. Dust attenuates the stellar continuum following the [Reddy et al. 2016](https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract) prescription. The wavelength range considered in the fit is $1200-1920$ angstroms, and the output SEDs are normalized to $1350-1370$ angstroms. The VANDELS resolution is $R = 600$, and the number of MC realizations is fixed to x100. 
 
 ## Outputs and Plots
-Multiple files are generated after a succesful FIT is completed, in `.txt, .npy` and `.pdf` format. The **OUTPUT** files 
-If the fit goes well, `FiCUS` generates different OUTPUT files
+Multiple files are generated after a succesful fit is completed, in `.txt, .npy` and `.pdf` format. The **OUTPUT** files 
 
 
 Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf` format, with the same name as the INPUT file. This file is saved in the [/FiCUS/outputs/](outputs/) directory, and it constitutes of three main panels: 
