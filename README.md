@@ -60,19 +60,17 @@ $$ --- $$
    plot_mode  > activate or desactivate PLOTTING mode 
                 [yes // no], 
    ssp_models > pick your preferred stellar LIBRARY 
-                [sb99 (Starburst99, Leitherer et al. 2010; ApJS, 189, 2) //
-                 bpass (BPASSv2.2.1, Eldridge et al. 2017; PASA, 34, E058)], 
+                [sb99 (Starburst99) // bpass (BPASSv2.2.1)], 
    zarray     > specify a set of METALLICITIES 
-                [001,004,008,01,02 (standing for 1/20, 1/5, 2/5, 1 and/or 2 Z_\sun)], 
+                [001,004,008,01,02 (standing for 1/20, 1/5, 2/5, 1 and 2 Z_\sun)], 
    att_law    > choose the DUST attenuation law 
-                [r16 (Reddy et al. 2016; ApJ, 828, 2) //
-                 smc (Prevot et al. 1994; A&A, 132, 389-392)], 
+                [r16 (Reddy et al. 2016) // smc (Prevot et al. 1994)], 
    wave_range > rest-frame WAVELENGTH range to be considered in the fit 
                 [e.g., 1200.,1920. (\lambda_min, \lambda_max; in \AA)], 
    wave_norm  > rest-frame wavelength interval for NORMALIZATION of the spectrum
                 [e.g., 1350.,1370. (in \AA)], 
    r_obs      > instrumental RESOLUTION of the input spectra 
-                [as R = (\Delta \lambda) / \lambda], 
+                [e.g., 600.; as R = (\Delta \lambda) / \lambda], 
    nsim       > number of Monte-Carlo (MC) ITERATIONS 
                 [e.g., 100.]. 
   ```
