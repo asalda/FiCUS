@@ -80,7 +80,7 @@ Given the name of the INPUT file (`SPEC-NAME`) and the redshift of the source (`
 ```
 > import os
 > os.chdir(path-to-ficus/FiCUS/);
-> %run -i ficus.py
+> %run -i ficus.py SPEC-NAME REDSHIFT
 ```
 
 After a successful run, the terminal will print the name of the INPUT file followed by the list of input parameters selected in the CONFIGURATION file. Succesfull fits will prompt the quote `# done!` when the process is finished. A typical console interface would be like this:
