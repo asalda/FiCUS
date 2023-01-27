@@ -27,7 +27,7 @@ $$ --- $$
 
 - The code is composed of two `.py` files:
   - ```ficus.py``` is the **main** script. It reads the INPUT file provided by the user, and performs the fit according to the options enclosed in the CONFIGURATION file (see [Input and Configuration files](README.md#input-and-configuration-files)). It gives the best-fit parameters, creates the OUTPUT files and figures (see [Outputs and Plots](README.md#outputs-and-plots)). 
-  - ```ficus_functions.py``` is a **secondary** script. After being called, all the functions are imported into the main script. This file includes pre-defined functions for spectral analysis, loading INPUT files and handling wityh data and models, as well as functions for the fitting routine, SED parameters calculations and plotting. 
+  - ```ficus_scripts.py``` is a **secondary** script. After being called, all the functions are imported into the main script. This file includes pre-defined routines for spectral analysis, loading INPUT files and handling wityh data and models, as well as functions for the fitting routine, SED parameters calculations and plotting. 
 
 
 ## Installation
