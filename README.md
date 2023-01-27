@@ -67,7 +67,7 @@ $$ --- $$
 | `r_obs` | instrumental RESOLUTION of the input spectra ( $R = \lambda / \Delta \lambda$ ) | number |
 | `nsim` | number of Monte-Carlo (MC) ITERATIONS | number |
 
-Examples of the INPUT and CONFIGURATION files can be found at the [/FiCUS/examples/](examples/) dedicated folder: [example.fits](examples/) and [example.ini](examples/example.ini), respectively. 
+Examples of the INPUT and CONFIGURATION files can be found at the [/FiCUS/examples/](examples/) dedicated folder: [CDFS017345.fits](examples/) and [CDFS017345.ini](examples/CDFS017345.ini), respectively. 
 
 
 ## Running FiCUS
