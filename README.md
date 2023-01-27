@@ -54,7 +54,7 @@ $$ --- $$
   
   The INPUT file can, for example, inherit the name of the spectrum to be fitted, and must always be placed into the [/FiCUS/inputs/](inputs/) folder beforehand. The 'MASK' extension of the INPUT file is a binary-array of the same length as 'WAVE', and indicates whether the 'FLUX' and 'FLUX_ERR' values at a certain wavelength ( $\lambda_i$ ) will be excluded (0 = masked) or considered (1 = un-masked) in the fit. 
 
-- The **CONFIGURATION** `ficus.ini` file specifies the input parameters and options that feed the main code:
+- The **CONFIGURATION** `.ini` file specifies the input parameters and options that feed the main code  (see [ficus.ini](ficus.ini)):
   
 | Input | Description | Options/Format | 
 | --- | --- | --- |
