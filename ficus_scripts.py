@@ -32,7 +32,7 @@ from collections import defaultdict
 from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.ticker import ScalarFormatter
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
-#matplotlib.rcParams['text.usetex']=True;
+matplotlib.rcParams['text.usetex']=True;
 
 c = 2.99e5; #km/s
 
