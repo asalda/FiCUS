@@ -4,6 +4,7 @@
 - [Input and Configuration files](README.md#input-and-configuration-files)
 - [Running FiCUS](README.md#running-ficus)
 - [Outputs and Plots](README.md#outputs-and-plots)
+- [Bug reports and LogFile](README.md#bug-reports-and-logfile)
 
 
 ## Description
@@ -129,7 +130,10 @@ Finally, if `plot_mode == yes`, the code generates a deafult **PLOT** in `.pdf`,
 
 An example of `FiCUS`'s plot for the previous CDFS017345 ([Saldana-Lopez et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv221101351S/abstract)) is visualized below. 
 
-![plot_example](outputs/CDFS017345.png)
+![plot_example](examples/CDFS017345.png)
+
+## Bug reports and LogFile
+
 
 
 [^1]: https://www.stsci.edu/science/starburst99/docs/default.htm
