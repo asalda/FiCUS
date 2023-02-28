@@ -33,6 +33,8 @@
 # f1500int           (1e-18 erg/s/cm2/AA)        intrinsic flux density modeled at 1500\AA,
 # M1500              (mag.)                      derived observed absolute AB magnitude at 1500\AA,
 # M1500int           (mag.)                      derived intrinsic absolute AB magnitude at 1500\AA,
+# beta1200                                       observed UV beta-slope modeled around 1200\AA, 
+# beta1200int                                    intrinsic UV beta-slope modeled around 1200\AA, 
 # beta1550                                       observed UV beta-slope modeled around 1550\AA,
 # beta1550int                                    intrinsic UV beta-slope modeled around 1550\AA,
 # beta2000                                       observed UV beta-slope modeled around 2000\AA,
