@@ -519,7 +519,7 @@ def ficus_plot(pdf_file, spec_name, z_spec, wave, flux_norm, err_norm, normID, m
     inset_ax = inset_axes(ax2,height='6%', width='50%', loc='upper right');
     ticks_l = (np.r_[(list(Z_dict.values())),99.][1:] + np.r_[(list(Z_dict.values())),99.][:-1])/2;
     cab = plt.colorbar(sm, cax=inset_ax, ticks = ticks_l, orientation='horizontal');
-    cab.set_ticklabels([r'$1/20$', r'$1/5$', r'$2/5$', r'$1$']);
+    cab.set_ticklabels([r'$1/20$', r'$1/5$', r'$2/5$', r'$1$', r'$2$']);
     inset_ax.set_xlabel(r'$\mathrm{Z_*~(Z_{\odot})}$', fontsize = 16, labelpad=18, rotation=0);
     for axis in ['top','bottom','left','right']:
         inset_ax.spines[axis].set_linewidth(.75);
