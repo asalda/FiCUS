@@ -42,7 +42,7 @@ $$ --- $$
 
 ... or later versions. Once the previous dependencies are updated, `FiCUS` can be cloned from this repository using [git](https://git-scm.com/), by just plugging into the terminal the following command (the option '--depth 1' avoids downloading the entire repository history):
 ```
-> git clone --depth 1 https://github.com/asalda/FiCUS/ficus.git
+> git clone --depth 1 https://github.com/asalda/FiCUS
 ```
 
 
@@ -133,6 +133,8 @@ An example of `FiCUS`'s plot for the previous CDFS017345 ([Saldana-Lopez et al. 
 ![plot_example](outputs/CDFS017345.png)
 
 ## LogFile
+    [27.11.2023]: .
+    [26.11.2023]: replacing typo in the README (Installation section), `git clone` should work now.
     [28.02.2023]: description of beta1200 and beta1200int parameters was missing in `ficus.py`, lines 423, 424.
     [07.02.2023]: fixing bug with `att_law` parameter (`ficus.py`, lines 278, 293; `ficus_script.py`, line 276). 
     [30.01.2023]: the first version of the code is released. 
