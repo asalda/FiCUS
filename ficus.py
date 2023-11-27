@@ -259,7 +259,7 @@ def ficus(path, spec_name, plot_mode, ssp_models, Zarray, att_law, wave_range, z
         """
         param_array = np.array(list(fit_.params.valuesdict().values()))[0:-1];
         # luminosity-weighted metallicity (Zo)
-        Z_dict = {'001':1/20., '004':1/5., '008':2/5., '02':1.};
+        Z_dict = {'001':1/20., '004':1/5., '008':2/5., '02':1., '04':2.};
         Z_set = [];
         for Z in range(len(Zarray)):
             Z_set.append(np.ones(10)*Z_dict[str(Zarray[Z])]);
