@@ -133,7 +133,7 @@ An example of `FiCUS`'s plot for the previous CDFS017345 ([Saldana-Lopez et al. 
 ![plot_example](outputs/CDFS017345.png)
 
 ## LogFile
-    [27.11.2023]: .
+    [27.11.2023]: `ficus.py`, line 262; `ficus_script.py`, lines ,.
     [26.11.2023]: replacing typo in the README (Installation section), `git clone` should work now.
     [28.02.2023]: description of beta1200 and beta1200int parameters was missing in `ficus.py`, lines 423, 424.
     [07.02.2023]: fixing bug with `att_law` parameter (`ficus.py`, lines 278, 293; `ficus_script.py`, line 276). 
