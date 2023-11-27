@@ -491,8 +491,8 @@ def ficus_plot(pdf_file, spec_name, z_spec, wave, flux_norm, err_norm, normID, m
     """
     ##########
     ax2 = fig.add_subplot(gs[1, 0]);
-    Z_dict = {'001':1/20., '004':1/5., '008':2/5., '02':1.};
-    cmap = matplotlib.colors.ListedColormap(['blue', 'lightgreen', 'yellow', 'red']);
+    Z_dict = {'001':1/20., '004':1/5., '008':2/5., '02':1., '04':2.};
+    cmap = matplotlib.colors.ListedColormap(['blue', 'lightgreen', 'yellow', 'red', 'darkred']);
     norm = matplotlib.colors.BoundaryNorm(np.r_[(list(Z_dict.values())),99.], cmap.N);
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm);
     pxl = np.array(np.r_[(list(Z_dict.values())),99.]);
