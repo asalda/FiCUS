@@ -132,7 +132,7 @@ An example of `FiCUS`'s plot for the previous CDFS017345 ([Saldana-Lopez et al. 
 
 ![plot_example](outputs/CDFS017345.png)
 
-## LogFile
+## ChangeLog
     [27.11.2023]: 2Zsun entry missing in `Z_dict`, fixing `ficus.py`, line 262; `ficus_script.py`, lines 494, 495, 522.
     [26.11.2023]: replacing typo in the README (Installation section), `git clone` should work now.
     [28.02.2023]: description of beta1200 and beta1200int parameters was missing in `ficus.py`, lines 423, 424.
