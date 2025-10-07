@@ -163,7 +163,7 @@ Additionally, you can opt for directly citing this repository...
       year = {2023}
 }
 ```
-... and/or refering to the identifier provided by the Astrophysics Source Code Library [ASCL](https://ascl.net/2508.019), as below:
+... and/or refering to the identifier provided by the Astrophysics Source Code Library ([ASCL](https://ascl.net/2508.019)), as below:
 ```
 @software{2025ascl.soft08019S,
        author = {{Saldana-Lopez}, A. and {Schaerer}, D. and {Chisholm}, J. and {Calabr{\`o}}, A. and {Pentericci}, L. and {Cullen}, F. and {Saxena}, A. and {Amor{\'\i}n}, R. and {Carnall}, A.~C. and {Fontanot}, F. and {Fynbo}, J.~P.~U. and {Guaita}, L. and {Hathi}, N.~P. and {Hibon}, P. and {Ji}, Z. and {McLeod}, D.~J. and {Pompei}, E. and {Zamorani}, G.},
