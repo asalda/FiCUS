@@ -184,8 +184,11 @@ def load_models(ssp_models, neb_mode, Zarray, wave_norm, fullSED=False):
             path_ssp = 'inputs/ssp_bases/SB99_STRIPPED/SB99_STRIPPED_HIRES_NEB%s/' %neb_mode;
     
     elif ssp_models == 'bpass':
-        path_ssp = 'inputs/ssp_bases/BPASS/BPASS_NEB%s/' %neb_mode;
-        
+        if fullSED:
+            path_ssp = 'inputs/ssp_bases/BPASS/BPASS_LORES_NEB%s/' %neb_mode;
+        else:
+            path_ssp = 'inputs/ssp_bases/BPASS/BPASS_HIRES_NEB%s/' %neb_mode;
+    
     else:
         print('/!\ Warning /!\: %s SSP models not found' %ssp_models)
         
