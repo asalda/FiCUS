@@ -196,14 +196,12 @@ def load_models(ssp_models, neb_mode, Zarray, wave_norm, fullSED=False):
     age_texts = ['01', '02', '03', '04', '05', '08', '10', '15', '20', '40'];
     
     for Z_i in Zarray:
-        wave_txt = 'WAVE' if ssp_models != 'bpass' else 'wave';
-        flux_txt = 'FLUX' if ssp_models != 'bpass' else 'flux';
         for age_i in age_texts:
             model = ascii.read(path_ssp+'%sMYR_%sZ.dat' %(age_i, Z_i));
-            mod_nfactor = np.nonzero((model[wave_txt]>=wave_norm[0])&(model[wave_txt]<=wave_norm[1]))[0];
-            models_array.append(np.array(model[flux_txt])/np.nanmedian(model[flux_txt][mod_nfactor]));
+            mod_nfactor = np.nonzero((model['WAVE']>=wave_norm[0])&(model['WAVE']<=wave_norm[1]))[0];
+            models_array.append(np.array(model['FLUX'])/np.nanmedian(model['FLUX'][mod_nfactor]));
     
-    return np.array(model[wave_txt]), np.array(models_array)
+    return np.array(model['WAVE']), np.array(models_array)
 
 # -------------------------- #
 #  fitting routine functions #
