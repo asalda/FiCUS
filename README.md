@@ -186,7 +186,9 @@ This program is free software: you can redistribute it and/or modify it under th
 The existence of this code has been possible thanks to the major role of involvement played by Sophia Flury (see [Flury et al. 2025](https://ui.adsabs.harvard.edu/abs/2025ApJ...985..128F/abstract)) and Beryl Hovis-Afflerbach (see [Hovis-Afflerbach et al. 2025](https://ui.adsabs.harvard.edu/abs/2025A%26A...697A.239H/abstract)). Special thanks to John Chisholm for his guidance, and  Calum Hawcroft for fruitful discussions. Credit to Macarena Garcia del Valle for coming-up with such an original name. 
 
 ## Change Log and Updates
-    [16.02.2026]: extending wavelength regime of the SB99 and BPASS model.
+    [17.02.2026]: new FiCUS logo added to the GitHub page!
+    [16.02.2026]: python `where` attribute updated from scipy to numpy.
+    [15.02.2026]: extending wavelength regime of the SB99 and BPASS model.
     [30.10.2025]: updating BPASS models and modifying `ficus_script.py`, lines 186 and 196.
     [24.09.2025]: fixing indexing bug on `ficus_script.py`, line 255.
     [27.08.2025]: release of a new version of FiCUS, including the stripped stars models.
