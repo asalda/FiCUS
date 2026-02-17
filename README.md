@@ -88,12 +88,14 @@ After a successful run, the terminal will print the name of the INPUT file follo
 ```
 > python3.7 ficus.py CDFS017345 3.6052
 
- ############################################################## 
+  ███████╗██╗ ██████╗██╗   ██╗███████╗                                
+  ██╔════╝██║██╔════╝██║   ██║██╔════╝                                
+  █████╗  ██║██║     ██║   ██║███████╗                                
+  ██╔══╝  ██║██║     ██║   ██║╚════██║                                
+  ██║     ██║╚██████╗╚██████╔╝███████║                                
+  ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝       
+        Fitting the Continuum of UV Spectra                        
  
- ###   FiCUS: Fitting the stellar Continuum of Uv Spectra   ### 
- 
- ############################################################## 
-   
  ### Running FiCUS (ficus.py) for CDFS017345.fits ...
  
  ### inputs ### 
