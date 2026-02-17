@@ -63,8 +63,8 @@ $$ - $$
 | `neb_mode` | add or remove the NEBULAR continuum contribution | `on` // `off` |
 | `zarray` | specify a set of METALLICITIES | `0001,0002,0008,0014` (0.1, 0.2, 0.5, and 1 $Z_{\odot}$) |
 | `att_law` | choose the DUST attenuation law | `r16` (Reddy et al. 2016) // `smc` (Prevot et al. 1994) |
-| `wave_range` | rest-WAVELENGTH range included the fit | $\lambda_{min}, \lambda_{max}$ (in \AA) |
-| `wave_norm` | rest-wavelength interval for NORMALIZATION of the spectra | $\lambda_{min}, \lambda_{max}$ (in \AA) |
+| `wave_range` | rest-WAVELENGTH range included the fit | $\lambda_{min}, \lambda_{max}$ (in $\AA$) |
+| `wave_norm` | rest-wavelength interval for NORMALIZATION of the spectra | $\lambda_{min}, \lambda_{max}$ (in $\AA$) |
 | `r_obs` | instrumental RESOLUTION of the input spectra ( $R = \lambda / \Delta \lambda$ ) | number |
 | `nsim` | number of Monte-Carlo (MC) ITERATIONS | number |
 | `plot_mode` | activate or desactivate PLOTTING mode | `yes` // `no` |
