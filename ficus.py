@@ -491,7 +491,7 @@ if __name__ == "__main__":
   ██╔══╝  ██║██║     ██║   ██║╚════██║                                
   ██║     ██║╚██████╗╚██████╔╝███████║                                
   ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝       
-        FItting the Continuum of Uv Spectra                        
+     FItting the stellar Continuum of Uv Spectra                        
     """)
     
     print('   ')
