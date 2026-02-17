@@ -293,8 +293,8 @@ def flam_x(wave,flam,lc,wth):
     """ 
     l1_lim = lc - wth;
     l2_lim = lc + wth;
-    w_int = wave[np.where((wave>=l1_lim)&(wave<=l2_lim))];
-    f_int = flam[np.where((wave>=l1_lim)&(wave<=l2_lim))];
+    w_int = wave[(wave>=l1_lim)&(wave<=l2_lim)];
+    f_int = flam[(wave>=l1_lim)&(wave<=l2_lim)];
     flam_x = trapz(f_int,w_int) / (2*wth);
     
     return flam_x
@@ -344,8 +344,8 @@ def QH_IHb(wave,flam,z):
     eh = 109678.758;
     wedge_h = 1.e8 / eh;
     
-    n_int = n_lam[np.where(wave<=wedge_h)];
-    w_int = wave[np.where(wave<=wedge_h)];
+    n_int = n_lam[wave<=wedge_h];
+    w_int = wave[wave<=wedge_h];
     
     q_h  = trapz(n_int,w_int);
     IHb = 4.76e-13 * q_h;
