@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="ficus_logo_light" src="https://github.com/user-attachments/assets/d7cc0b0a-8614-4501-9ecc-c3f6be103307" />
+<img width="842" height="505" alt="ficus_logo" src="https://github.com/user-attachments/assets/cd471a6c-5260-46d7-b9b2-b144d3a8cd41" />
 
 # `FiCUS` (FItting the stellar Continuum of Uv Spectra) 
 - [Description](README.md#description)
