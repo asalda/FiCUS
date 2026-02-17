@@ -1,7 +1,7 @@
  
  ############################################################## 
  
- ###   FiCUS: Fitting the stellar Continuum of Uv Spectra   ### 
+ ###   FiCUS: FItting the stellar Continuum of Uv Spectra   ### 
  
  ############################################################## 
  
@@ -491,7 +491,7 @@ if __name__ == "__main__":
   ██╔══╝  ██║██║     ██║   ██║╚════██║                                
   ██║     ██║╚██████╗╚██████╔╝███████║                                
   ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝       
-        Fitting the Continuum of UV Spectra                        
+        FItting the Continuum of Uv Spectra                        
     """)
     
     print('   ')
