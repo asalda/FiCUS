@@ -94,7 +94,7 @@ After a successful run, the terminal will print the name of the INPUT file follo
   ██╔══╝  ██║██║     ██║   ██║╚════██║                                
   ██║     ██║╚██████╗╚██████╔╝███████║                                
   ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝       
-        FItting the Continuum of Uv Spectra                        
+     FItting the stellar Continuum of Uv Spectra                        
  
  ### Running FiCUS (ficus.py) for CDFS017345.fits ...
  
