@@ -191,7 +191,7 @@ The existence of this code has been possible thanks to the major role of involve
 
 ## Change Log and Updates
     [17.02.2026]: new FiCUS logo added to the GitHub page!
-    [16.02.2026]: python `where` attribute updated from scipy to numpy in `ficus_script.py`.
+    [16.02.2026]: python `where()` attribute updated from scipy to numpy in `ficus_script.py`.
     [15.02.2026]: extending wavelength regime of the SB99 and BPASS model.
     [30.10.2025]: updating BPASS models and modifying `ficus_script.py`, lines 186 and 196.
     [24.09.2025]: fixing indexing bug on `ficus_script.py`, line 255.
