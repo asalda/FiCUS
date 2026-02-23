@@ -60,19 +60,12 @@ def gauss_convolution(spec_flux, sig, xsize):
     return spec_conv
 
 # ### Dust-attenuation laws suited for the FUV regime
-def R16(lam):
-    mulam = lam/1.e4;
-    klam = 2.191 + 0.974/mulam;
-    klam = np.where(mulam<0.010, 0., klam);
-    klam = np.where(mulam>2.200, 0., klam);
-    
-    return klam;
 
 def SMC(lam): 
     """ (Prevot et al. 1984; A&A, 132, 389-392) 
         https://ui.adsabs.harvard.edu/abs/1984A%26A...132..389P/exportcitation
     """
-    mulam = lam/1.e4;
+    mulam = lam/1e4;
     klam = 0.17684325 + 1.44022523/(mulam) + 0.08560055/(mulam)**2;
     klam = np.where(mulam<0.010, 0., klam);
     klam = np.where(mulam>2.200, 0., klam);
@@ -90,23 +83,31 @@ def R15full(lam, rv=False):
     klam = np.where((mulam<2.85) & (mulam>=0.6), 
                  -2.672 - 0.010/mulam + 1.532/mulam**2 - 0.412/mulam**3 + RV, klam);
     if rv:
-        return klam, RV;
+        return klam, RV
     else:
-        return klam;
+        return klam
+
+def R16(lam):
+    mulam = lam/1e4;
+    klam = 2.191 + 0.974/mulam;
+    klam = np.where(mulam<0.010, 0., klam);
+    klam = np.where(mulam>2.200, 0., klam);
+    
+    return klam
 
 def R16full(lam, rv=False):
     """ (Reddy et al. 2016; ApJ, 828, 2) 
         https://ui.adsabs.harvard.edu/abs/2016ApJ...828..107R/abstract
     """ 
-    mulam = lam/1.e4;
+    mulam = lam/1e4;
     klam, RV = R15full(lam, rv=True);
     klam = np.where((mulam<=0.15), 2.191+0.974/mulam, klam);
     klam = np.where(mulam<0.010, 0., klam);
     klam = np.where(mulam>2.200, 0., klam);
     if rv:
-        return klam, RV;
+        return klam, RV
     else:
-        return klam;
+        return klam
     
 #     xlamdat = np.array( \
 #             [ 1000., 1050., 1100., 1150., 1200., 1275., 1330., \
