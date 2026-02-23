@@ -258,7 +258,7 @@ def ficus(path, spec_name, ssp_models, neb_mode, Zarray, att_law, wave_range, z_
         
         if att_law == 'r16':
             kl, klfull = R16(wave), R16full(wl_full);
-        elif atta_law == 'smc':
+        elif att_law == 'smc':
             kl, klfull = SMC(wave), SMC(wl_full);
         else:
             print('/!\ Warning /!\: %s not a valid extinction law' %att_law)
