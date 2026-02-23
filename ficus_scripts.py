@@ -60,7 +60,6 @@ def gauss_convolution(spec_flux, sig, xsize):
     return spec_conv
 
 # ### Dust-attenuation laws suited for the FUV regime
-
 def SMC(lam): 
     """ (Prevot et al. 1984; A&A, 132, 389-392) 
         https://ui.adsabs.harvard.edu/abs/1984A%26A...132..389P/exportcitation
