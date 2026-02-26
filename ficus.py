@@ -231,7 +231,7 @@ def ficus(path, spec_name, ssp_models, neb_mode, Zarray, att_law, wave_range, z_
             params.add('X%s' %(n), value=0.1, min=0., max=10.);
         params.add('ebv', value=0.1, min=0., max=0.5);
         
-        fit_ = minimize(residuals, params=params, args=(wave, custom_lib, att_law, flux_normSIM, err_normSIM), method='leastsq', nan_policy='omit', scale_covar=True, reduce_fcn='neglogcauchy');
+        fit_ = minimize(residuals, params=params, args=(wave, custom_lib, att_law, flux_normSIM, err_normSIM), method='leastsq', calc_covar=True, scale_covar=True, nan_policy='omit', reduce_fcn='neglogcauchy');
         
         # reduced chi-2
         chi2 = fit_.redchi;
