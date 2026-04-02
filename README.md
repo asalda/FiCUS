@@ -190,7 +190,7 @@ This program is free software: you can redistribute it and/or modify it under th
 The existence of this code has been possible thanks to the major role of involvement played by Sophia Flury (see [Flury et al. 2025](https://ui.adsabs.harvard.edu/abs/2025ApJ...985..128F/abstract)) and Beryl Hovis-Afflerbach (see [Hovis-Afflerbach et al. 2025](https://ui.adsabs.harvard.edu/abs/2025A%26A...697A.239H/abstract)). Special thanks to John Chisholm for his guidance, and  Calum Hawcroft for fruitful discussions. Credit to Macarena Garcia del Valle for coming-up with such an original name. 
 
 ## Change Log and Updates
-    [26.02.2026]: adding `calc_covar=True` to minimize(), `ficus.py`  line 234.
+    [26.02.2026]: adding `calc_covar=True` to minimize(), `ficus.py` line 234.
     [17.02.2026]: new FiCUS logo added to the GitHub page!
     [16.02.2026]: python `where()` attribute updated from scipy to numpy in `ficus_script.py`.
     [15.02.2026]: extending wavelength regime of the SB99 and BPASS model.
