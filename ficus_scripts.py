@@ -20,7 +20,6 @@ from astropy.cosmology import WMAP7 as cosmo
 from astropy.io import ascii
 from astropy.io import fits
 from astropy.table import Table, Column
-from scipy.integrate import trapz
 
 import matplotlib
 import matplotlib.gridspec as gridspec
@@ -187,7 +186,7 @@ def load_models(ssp_models, neb_mode, Zarray, wave_norm, fullSED=False):
             path_ssp = 'inputs/ssp_bases/BPASS/BPASS_LORES_NEB%s/' %neb_mode;
         else:
             path_ssp = 'inputs/ssp_bases/BPASS/BPASS_HIRES_NEB%s/' %neb_mode;
-    
+        
     else:
         print('/!\ Warning /!\: %s SSP models not found' %ssp_models)
         
@@ -236,8 +235,8 @@ def model_conv(R_mod, R_obs, wave_norm, wl_obs, data_array, error_array, wl_mode
         n = np.ceil(3.034854259*sig);
         xsize = int(2*n) + 1;
         
-        custom_data = gauss_convolution(data_array, sig, xsize);
-        custom_error = np.sqrt(gauss_convolution(error_array**2, sig, xsize));
+        custom_data, custom_error = gauss_convolution(data_array, sig, xsize), error_array;
+        #custom_error = np.sqrt(gauss_convolution(error_array**2, sig, xsize));
         
         custom_lib = np.zeros((len(models_array),len(wl_obs)));
         for i in np.arange(0,len(models_array),1):
@@ -252,7 +251,7 @@ def ssp2obs(params, wl_model, models, att_law, fullSED=False):
         by DUST and return the normalized synthetic spectrum: 'spec_model'
     """ 
     light_fracs = [];
-    for n in range(len(params)-1):
+    for n in range(len(params)-2):
         light_fracs.append(params['X%s' %(n)].value);
     light_fracs = np.array(light_fracs);
     ebv = params['ebv'].value;
@@ -295,7 +294,7 @@ def flam_x(wave,flam,lc,wth):
     l2_lim = lc + wth;
     w_int = wave[(wave>=l1_lim)&(wave<=l2_lim)];
     f_int = flam[(wave>=l1_lim)&(wave<=l2_lim)];
-    flam_x = trapz(f_int,w_int) / (2*wth);
+    flam_x = np.trapz(f_int,w_int) / (2*wth);
     
     return flam_x
 
@@ -347,7 +346,7 @@ def QH_IHb(wave,flam,z):
     n_int = n_lam[wave<=wedge_h];
     w_int = wave[wave<=wedge_h];
     
-    q_h  = trapz(n_int,w_int);
+    q_h  = np.trapz(n_int,w_int);
     IHb = 4.76e-13 * q_h;
     
     dL = cosmo.luminosity_distance(z).value * 3.086e24;

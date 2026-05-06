@@ -161,10 +161,10 @@ ssp_models = config['ficus']['ssp_models'];
 neb_mode = config['ficus']['neb_mode'];
 Zarray = config['ficus']['Zarray'].split(',');
 att_law = config['ficus']['att_law'];
-wave_range = np.float_(config['ficus']['wave_range'].split(','));
-wave_norm = np.float_(config['ficus']['wave_norm'].split(','));
+wave_range = np.float64(config['ficus']['wave_range'].split(','));
+wave_norm = np.float64(config['ficus']['wave_norm'].split(','));
 R_obs = float(config['ficus']['r_obs']);
-nsim = int(np.float_(config['ficus']['nsim']));
+nsim = int(np.float64(config['ficus']['nsim']));
 plot_mode = config['ficus']['plot_mode'];
 
 # ------------------------------- #
@@ -483,7 +483,7 @@ comments= '# %s' %now.strftime('%Y/%m/%d %H:%M:%S') + '\n' + '#\n'
 # ----------------------------- #
 
 if __name__ == "__main__":
-    
+
     print(r"""
   ███████╗██╗ ██████╗██╗   ██╗███████╗                                
   ██╔════╝██║██╔════╝██║   ██║██╔════╝                                
@@ -491,9 +491,9 @@ if __name__ == "__main__":
   ██╔══╝  ██║██║     ██║   ██║╚════██║                                
   ██║     ██║╚██████╗╚██████╔╝███████║                                
   ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝       
-     FItting the stellar Continuum of Uv Spectra                        
+    FItting the stellar Continuum of Uv Spectra                        
     """)
-    
+
     print('   ')
     print(' ### Running FiCUS (ficus.py) for %s.fits ...' %spec_name)
     
